@@ -1,19 +1,25 @@
 {
   "name": "knowledgebase",
   "version": "1.0.0",
-  "description": "Term Project for 4711",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "Knowledge Base",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jeffery-Wasty/KnowledgeBase.git"
+    "url": "git+https://github.com/Jeffery-Wasty/KnowledgeBase"
+  },
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
   },
   "author": "Jeff",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Jeffery-Wasty/KnowledgeBase/issues"
+  "homepage": "https://github.com/Jeffery-Wasty/KnowledgeBase#readme",
+  "devDependencies": {
+    "eslint": "^6.6.0"
   },
-  "homepage": "https://github.com/Jeffery-Wasty/KnowledgeBase#readme"
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "nodemon": "^1.19.4"
+  }
 }
