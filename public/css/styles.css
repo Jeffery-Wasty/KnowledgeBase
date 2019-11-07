@@ -1,0 +1,125 @@
+.btn {
+  background-color: lightgrey;
+  border: none;
+  padding: 15px 0px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+::placeholder {
+  color: gray;
+  font-size: 16px;
+}
+
+.search-box {
+  border: 0.1px solid lightgray;
+  padding: 20px;
+  width: 40%;
+  margin: 15px auto;
+}
+
+.search-box h3 {
+  font-size: 26px;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.search {
+  flex: 7;
+  padding: 12px 20px;
+  height: 100%;
+}
+
+.artist-button {
+  margin: auto 1%;
+  flex: 1;
+}
+
+.search-button {
+  margin: auto 1%;
+  flex: 1;
+}
+
+.form-fields {
+  text-align: center;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 1% auto;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: black;
+  font-size: 16px;
+}
+
+.add-button {
+  display: block;
+  margin: 1% auto 0 auto;
+  width: 30%;
+}
+
+.add-artist-box {
+  display: none;
+  padding: 0px 20px 20px 20px;
+  margin: auto;
+  width: 30%;
+}
+
+.artist-list {
+  width: 30%;
+  margin: auto;
+}
+
+.artist-box {
+  display: flex;
+  border: 1px solid lightgray;
+}
+
+.name-section {
+  color: black;
+  font-weight: bold;
+  margin: 2% auto;
+}
+
+.about-section {
+  margin-top: 2%;
+  color: black;
+  font-weight: bold;
+}
+
+.content {
+  margin: 5% auto;
+  flex: 3;
+}
+
+.artist-image {
+  width: 100px;
+  height: auto;
+  margin: 3%;
+}
+
+#delete-form {
+  padding-left: 3%;
+  padding-right: 3%;
+  margin: auto 5%;
+  height: 34%;
+}
+
+.delete-button {
+  background-color: #e03652;
+  border-radius: 8px;
+  color: white;
+}
+
+.logout-bar {
+  background-color: lightgray;
+  padding: 1%;
+}
+
+.logout-button {
+  margin: auto 5% auto auto;
+  flex: 1;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "knowledgebase",
+  "version": "1.0.0",
+  "description": "Term Project for 4711",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jeffery-Wasty/KnowledgeBase.git"
+  },
+  "author": "Jeff",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jeffery-Wasty/KnowledgeBase/issues"
+  },
+  "homepage": "https://github.com/Jeffery-Wasty/KnowledgeBase#readme"
+}
