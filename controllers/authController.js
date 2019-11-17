@@ -1,19 +1,55 @@
+const profileModel = require('../models/profileModel');
+
 exports.loginPage = (req, res) => {
-    res.render('login', {layout: 'signUp'});
+    res.render('loginPage', {layout: 'signUp'});
 }
 
 exports.signUp = (req, res) => {
-    //POST to user table with ID to add new user
-    //redirect with user ID to register page to complete user registration
-    res.redirect(301, '/register');
+    const user = req.body;
+    if(req.body.password === req.body.confirm_pass) {
+        //using random int as ID
+        user.id = Math.floor(Math.random()*100000000)
+        profileModel.createUser(user)
+            .then(()=> {
+                //pass user.id to /register to insert more data into that user using id
+                res.redirect(301, `/registerPage/${user.id}`);
+            })
+            .catch((err)=>{
+                console.log(err)
+                res.redirect(403, '/');
+            })
+    } else {
+        res.render('loginPage', {layout: 'signUp', err: "Password Did not match"})
+    }
 }
 
 exports.login = (req, res) => {
+    profileModel.login(req.body)
+        .then( ([data, fieldData]) => {
+            console.log(data[0])
+            if (data[0] && req.body.password === data[0].PASSWORD) {
+                //redirect to /mainPage/:id
+                res.render('loginPage', {layout: 'signUp', user: data[0], wrongPass: 'Logged in'});
+            } else {
+                res.render('loginPage', {layout: 'signUp', wrongPass: 'Wrong password'})
+            }
+        })
+        .catch((err) => {
+            console.log(err)
+        })
     // check login credentials with database, redirect to home if successful
-    res.redirect(301, '/homePage');
+}
+
+exports.registerPage = (req, res) => {
+    res.render('registerPage', {layout: 'signUp', id: req.params.id});
 }
 
 exports.register = (req, res) => {
-    //get user ID from req.param to POST additional info for that user
-    res.render('register', {layout: 'signUp'});
+    profileModel.registerUser(req.body)
+        .then(() => {
+            res.redirect(301, '/');
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 }

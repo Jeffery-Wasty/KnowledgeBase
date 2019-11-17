@@ -6,8 +6,9 @@ const authController = require('../controllers/authController');
 /**Login and Sign Up routes**/
 router.get('/', authController.loginPage);
 router.post('/signUp', authController.signUp);
-router.post('login', authController.login);
-router.get('/register', authController.register);
+router.post('/login', authController.login);
+router.get('/registerPage/:id', authController.registerPage);
+router.post('/register', authController.register)
 
 //router.get('/:id', profileController.serve);
 
