@@ -26,9 +26,8 @@ exports.signUp = (req, res) => {
 exports.login = (req, res) => {
     profileModel.login(req.body)
         .then( ([data, fieldData]) => {
-            console.log(data[0])
             if (data[0] && req.body.password === data[0].PASSWORD) {
-                //redirect to /mainPage/:id
+                //IF DATABASE HAS USER AND MATCHING PASSOWRD, IMPLEMENT REDIRECT TO /mainPage/:id
                 res.render('loginPage', {layout: 'signUp', user: data[0], wrongPass: 'Logged in'});
             } else {
                 res.render('loginPage', {layout: 'signUp', wrongPass: 'Wrong password'})
