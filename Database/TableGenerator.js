@@ -14,6 +14,8 @@ exports.test = async function test(){
     console.log('Example call of stored procedure with column extraction: ');
     let data = await pool.promise().query('CALL GET_TOPICS(NULL);')
     console.log('ID: ' + data[0][0][0].ID + ', Topic: ' + data[0][0][0].TOPIC);
+    console.log('Likes:');
+    console.log((await pool.promise().query('SELECT * FROM USER_LIKES'))[0]);
 }
 
 async function addDummyData(){
