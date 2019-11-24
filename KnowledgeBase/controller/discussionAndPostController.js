@@ -60,18 +60,16 @@ exports.getAllDiscussionsWithSearch = async (req, res) => {
     //res.send(await db.getAllDiscussionsWithSearch(req.body.topic, req.body.search));
 }
 exports.getPostsForDiscussion = async (req, res) => {
-    //console.log(await db.getPostsForDiscussion(req.body.discussionID));
+    //TODO fix re-rendering of main layout do conditionals or something else
     await db.getPostsForDiscussion(req.body.discussionID).then(([data,metadata])=>{
         let posts = data[0];
         console.log(posts);
+        res.render('../discussionAndPostView.hbs', {posts: posts, dicussions: req.body.discussion})
     })
-    //res.render('main-layout.hbs', {postsForDiscussion: posts})
-
 }
 exports.createDiscussion = async (req, res) => {
-    //user id, topic id, discussion subject, discussion body
-    console.log(req.body)
-    res.send(await db.createDiscussion(req.body.userID, req.body.topicID, req.body.discussionSubject, req.body.discussionBody))
+    await db.createDiscussion(req.body.userID, req.body.topicID, req.body.discussionSubject, req.body.discussionBody)
+    res.redirect(301, '/')
 }
 exports.createPost = async (req, res) => {
     console.log("insidecreatectrl")

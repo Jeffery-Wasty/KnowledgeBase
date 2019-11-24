@@ -7,10 +7,9 @@
         <textarea id="addDiscussionBodyInput" type="text" name="discussionBody" placeholder="Explain in detail..." form="addDiscussionForm"></textarea>
         <div class="addDiscussionFooter">
             <input type="submit" class="postButton" value="Post to Timeline"></input>
-            <input type="hidden"  name="topicID" value="1"></input> <!--TODO     value={{this.ID}}-->
-            <select id="discussionTopicDropDown">
+            <select id="discussionTopicDropDown" name="topicID">
                 {{#each topics}}
-                    <option>{{this.TOPIC}}</option>
+                    <option value={{this.ID}}>{{this.TOPIC}}</option>
                 {{/each}}
             </select>
         </div>
