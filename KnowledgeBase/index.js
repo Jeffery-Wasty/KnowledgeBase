@@ -8,11 +8,12 @@ app.engine(
     expressHbs({
       layoutsDir: 'views/layouts/',
       defaultLayout: 'main-layout',
+      partialsDir: __dirname + '/views/partials/',
       extname: 'hbs'
     })
   );
   app.set('view engine', 'hbs');
-  app.set('views', path.join(__dirname, 'views'));
+  app.set('views', path.join(__dirname, 'views/layouts'));
 
 app.use(express.static(__dirname));
 
@@ -23,9 +24,9 @@ app.use(bodyParser.json());
 let routes = require('./routes/routes'); 
  
 
-app.get('/', async (req, res) => {
+/*app.get('/', async (req, res) => {
     res.render("./layouts/main-layout.hbs");
-})
+})*/
 
 app.use(routes);
 
