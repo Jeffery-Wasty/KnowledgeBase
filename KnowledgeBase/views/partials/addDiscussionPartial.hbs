@@ -1,0 +1,14 @@
+<div class="addDiscussionContainer">
+    <div class="addDiscussionTitle">What is your question?</div>
+    <form id="addDiscussionForm" action="createDiscussion" method="POST">
+        <textarea id="addDiscussionSubjectInput" type="text" name="discussionSubject" placeholder="Subject" form="addDiscussionForm"></textarea>
+        <textarea id="addDiscussionBodyInput" type="text" name="discussionBody" placeholder="Explain in detail..." form="addDiscussionForm"></textarea>
+        <div class="addDiscussionFooter">
+            <input type="submit" class="postButton" value="Post to Timeline"></input>
+            <select id="discussionTopicDropDown" name="topic">
+                <option>Test 1</option>
+                <option>Test 2</option>
+            </select>
+        </div>
+    </form>
+</div>

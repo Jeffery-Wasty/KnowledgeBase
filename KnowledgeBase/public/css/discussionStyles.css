@@ -1,0 +1,81 @@
+/*Universal font application*/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: gray;
+}
+
+.discussionPartial {
+    background-color:white;
+    width: 400px;
+}
+
+.userPortraitContainer {
+    float:left;
+    background-color:white;
+    width: 21%; /*1-width here = width .headerContainer*/
+    height: 100%;
+}
+
+.userPortrait {
+    border-radius:50%;
+    border-width:2px;
+    border-style:double;
+    border-color:gray;
+}
+
+.discussionHeaderContainer {
+    float:left;
+    width: 79%; /*1-width here = width .userPortraitContainer*/
+}
+
+.discussionHeaderTitle {
+    font-size: 16px;
+    float:left;
+}
+
+.discussionHeaderTopic {
+    border-style: solid;
+    padding: 1px;
+    width: 20%;
+    border-width:1px; /*Why is border not appearing?*/
+    border-color:dodgerblue;
+    color:dodgerblue;
+    float:right;
+    text-align:center;
+}
+
+.discussionContainer {
+    float: left;
+    width: 79%; /*Should be same as .discussionHeaderContainer width*/
+}
+
+.discussionBody {
+    width: 100%;
+    padding: 2%;
+    max-height:3;
+    max-lines: 3;
+    line-height: 1; /*TODO this line + preceding 2, figure how to limit lines of discussion, should it be handled here?*/
+    text-overflow: ellipsis;
+}
+
+.discussionFooterContainer {
+}
+
+.discussionDate {
+    font-size:13px;
+    float:left;
+}
+
+.discussionReplies {
+    font-size:13px;
+    float:right;
+}
+
+
+
+/*General Elements*/
+
+.spacer {
+    height: 5px;
+}

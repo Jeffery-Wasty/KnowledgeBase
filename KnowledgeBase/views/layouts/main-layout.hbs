@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kb</title>
+    <script src = '../../public/js/addPostAndDiscussion.js'></script>
+    <link href='../../public/css/discussionStyles.css' rel='stylesheet' />
+    <link href='../../public/css/postStyles.css' rel='stylesheet' />
+    <link href='../../public/css/searchByTopicStyles.css' rel='stylesheet' />
+    <link href='../../public/css/addPostStyles.css' rel='stylesheet' />
+    <link href='../../public/css/addDiscussionStyles.css' rel='stylesheet' />
+</head>
+<body>
+    <header class="main-header">
+    </header>
+    {{#each topics}}
+        {{>discussionPartial topics}}
+    {{/each}}
+</body>
+</html>

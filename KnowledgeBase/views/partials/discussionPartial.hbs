@@ -1,0 +1,40 @@
+<div class="discussionPartial">
+    <!--Partial appears on these pages and by searching by subject line or by topic-->
+    {{#if user-page}}
+    <div></div>
+    {{/if}}
+    {{#if user-posts-page}}
+    <div></div>
+    {{/if}}
+    <!--encompass this in a loop for how many discussions will be displayed from return of top X from db-->
+    <div class="userPortraitContainer">
+        <img class="userPortrait" src="https://randomuser.me/api/portraits/med/men/1.jpg"></img>
+    </div>
+    <div class="discussionHeaderContainer">
+        <div class="discussionHeaderTitle">
+            User Settings Deleted
+        </div>
+        <div class="discussionHeaderTopic">
+            Node JS
+        </div>
+    </div>
+    <div class="discussionContainer">
+        <div class="discussionBody">
+            This is some sample text to test the ability to organize this properly. So what else should I put here, I have no idea. Well maybe I will talk
+            about how I hate this class cause I am bad at it, but in the end it is what it is. I become frustrated easily when I do not get things and that
+            results in a cyclical decline in my learning as the poor results come in. I reap what I sow, and being frustrated does not aid in understanding.
+            So I guess the important thing is to know then to apply. 
+        </div>
+        {{#if showDateAndReplies}}
+        <div class="discussionFooterContainer">
+            <div class="discussionDate">
+                20 October 2019
+            </div>
+            <!--TODO add functionality should rerender page somewhere-->
+            <div class="discussionReplies" onclick="getPostsForDiscussion">
+                7 Replies
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</div>
