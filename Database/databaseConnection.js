@@ -4,9 +4,9 @@ const pool = mysql.createPool({
     connectionLimit:8,
     multipleStatements:true,
     host:'us-cdbr-iron-east-05.cleardb.net',
-    user:'b8f623fe265c8b',
-    database:'heroku_802f7c08cf3f1c6',
-    password:'282117ad'
+    user:'bb708863be87b7',
+    database:'heroku_c00af6dccc11356',
+    password:'be1d8c43'
 });
 
-module.exports = pool;
+module.exports = pool.promise();
