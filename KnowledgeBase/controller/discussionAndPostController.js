@@ -11,14 +11,14 @@ exports.addDisucssion = async (req, res) => {
 */
 
 exports.getRoot = async (req, res) => {
-    console.log((await db.getAllDiscussions())[0][0]);
+    //console.log((await db.getAllDiscussions())[0][0]);
     //return(await db.getTopics())
     db.getTopics().then(([data,metadata])=>{
-        console.log("IN get topics");
-        let topics = data;
+        let topics = data[0];
+        //[0] = table, [0][0] = table, row, [0][0][0] = id
         db.getAllDiscussions().then(([data,metadata])=>{
-            let discussions = data;
-            console.log("In get discussions");
+            let discussions = data[0];
+            //console.log(discussions);
             res.render('main-layout', {dicussions: discussions, topics: topics})
         })
     });
@@ -60,15 +60,21 @@ exports.getAllDiscussionsWithSearch = async (req, res) => {
     //res.send(await db.getAllDiscussionsWithSearch(req.body.topic, req.body.search));
 }
 exports.getPostsForDiscussion = async (req, res) => {
-    //should also be render
-    //res.send(await db.getPostsForDiscussion(req.body.id))
+    //console.log(await db.getPostsForDiscussion(req.body.discussionID));
+    await db.getPostsForDiscussion(req.body.discussionID).then(([data,metadata])=>{
+        let posts = data[0];
+        console.log(posts);
+    })
+    //res.render('main-layout.hbs', {postsForDiscussion: posts})
+
 }
 exports.createDiscussion = async (req, res) => {
     //user id, topic id, discussion subject, discussion body
-    res.send(await db.createDiscussion(req.body.userID, req.body.topicID, req.body.subject, req.body.body))
-    //res.redirect?
+    console.log(req.body)
+    res.send(await db.createDiscussion(req.body.userID, req.body.topicID, req.body.discussionSubject, req.body.discussionBody))
 }
 exports.createPost = async (req, res) => {
+    console.log("insidecreatectrl")
     //user id, discussion id, post body
     res.send(await db.createPost(req.body.userID, req.body.discussionID, req.body.body))
     //res.redirect?

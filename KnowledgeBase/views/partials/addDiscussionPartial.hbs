@@ -1,13 +1,17 @@
 <div class="addDiscussionContainer">
     <div class="addDiscussionTitle">What is your question?</div>
+    <div class="hiddenDiv" name="userID"></div>
     <form id="addDiscussionForm" action="createDiscussion" method="POST">
+        <input type="hidden" name="userID" value="1"></input> <!--TODO      value="{{user.ID}}-->
         <textarea id="addDiscussionSubjectInput" type="text" name="discussionSubject" placeholder="Subject" form="addDiscussionForm"></textarea>
         <textarea id="addDiscussionBodyInput" type="text" name="discussionBody" placeholder="Explain in detail..." form="addDiscussionForm"></textarea>
         <div class="addDiscussionFooter">
             <input type="submit" class="postButton" value="Post to Timeline"></input>
-            <select id="discussionTopicDropDown" name="topic">
-                <option>Test 1</option>
-                <option>Test 2</option>
+            <input type="hidden"  name="topicID" value="1"></input> <!--TODO     value={{this.ID}}-->
+            <select id="discussionTopicDropDown">
+                {{#each topics}}
+                    <option>{{this.TOPIC}}</option>
+                {{/each}}
             </select>
         </div>
     </form>

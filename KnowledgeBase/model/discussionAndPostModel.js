@@ -23,29 +23,17 @@ exports.getAllDiscussionsWithSearch = async () => {
     return(await pool.promise().query('CALL GET_TOPICS(NULL);'))
 }
 
-exports.getPostsForDiscussion = async () => {
-    //CALL GET_POSTS_FOR_DISCUSSION(1), 1 = DISCUSSION_ID
-    return(await pool.promise().query('CALL GET_POSTS_FOR_DISCUSSION(ID);'))
+exports.getPostsForDiscussion = async (discussionID) => {
+    console.log('CALL GET_POSTS_FOR_DISCUSSION('+ discussionID +')');
+    return(await pool.promise().query('CALL GET_POSTS_FOR_DISCUSSION('+ discussionID +')'));
 }
 
-exports.createDiscussion = async () => {
-    /*
-    CALL CREATE_DISCUSSION(1, 0, 'A ridiculously awesome title', 'A very short body');
-SET @USER_ID = 1;
-SET @TOPIC_ID = 0;
-SET @TITLE = 'A ridiculously awesome title';
-SET @BODY = 'A very short body';*/
-    return(await pool.promise().query('CALL CREATE_DISCUSSION(1,0,\'A ridiculously awesome title\', \'A very short body\')'));
+exports.createDiscussion = async (userID, topicID, discussionBody, discussionSubject) => {
+    return(await pool.promise().query('CALL CREATE_DISCUSSION(' + userID + ',' + topicID + ',\'' + discussionBody + '\',\''+ discussionSubject + '\')'));
 }
 
 exports.createPost = async () => {
-    /*
-    CALL CREATE_POST(1, 1, 'A random sadhlgashdglasdjg post body');
 
-SET @USER_ID = 1;
-SET @DISCUSSION_ID = 1;
-SET @POST_BODY = 'A random sadhlgashdglasdjg post body';
-SET @ID = (SELECT IF(EXISTS(SELECT 1 FROM POSTS), (SELECT MAX(ID) + 1 FROM POSTS), 0));*/
     return(await pool.promise().query('CALL CREATE_POST(1,0, A very short  POST body'));
 }
 

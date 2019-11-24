@@ -3,13 +3,12 @@
         <div class="searchByTopicTitle">
             Search By Topic
         </div>
-        <!-- This needs to be done dynamically with data from database -->
         <div class="dropDownContainer">
             <select id="searchTopicDropDown">
-                <option value="op1">Test 1</option>
-                <option value="op2">Test 2</option>
+                {{#each topics}}
+                    <option>{{this.TOPIC}}</option>
+                {{/each}}
             </select>
-            <!--this may need js to start the call and pass in select option"-->
             <button class="regularButton" onclick="getAllDiscussionsWithSearch">
                 Go
             </button>

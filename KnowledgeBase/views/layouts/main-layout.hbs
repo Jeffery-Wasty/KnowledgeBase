@@ -11,11 +11,10 @@
     <link href='../../public/css/addDiscussionStyles.css' rel='stylesheet' />
 </head>
 <body>
-    {{> addDiscussionPartial}}
     <header class="main-header">
     </header>
-    {{#each topics}}
-        {{>discussionPartial topics}}
-    {{/each}}
+        {{> addDiscussionPartial topics=topics user=user}}
+        {{> discussionPartial discussions=dicussions}}
+        {{> addPostPartial}}
 </body>
 </html>

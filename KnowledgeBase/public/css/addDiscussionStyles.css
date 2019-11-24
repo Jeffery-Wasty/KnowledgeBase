@@ -48,3 +48,7 @@
     border: solid 1px transparent;
     width: 30%;
 }
+
+.hiddenDiv {
+    display:none;
+}
