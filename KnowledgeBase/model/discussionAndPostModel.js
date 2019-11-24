@@ -14,7 +14,7 @@ exports.getTopic = async () => {
 
 exports.getAllDiscussions = async () => {
     //CALL GET_ALL_DISCUSSIONS()
-    return(await pool.promise().query('CALL GET_ALL_DICUSSIONS(NULL);'))
+    return(await pool.promise().query('CALL GET_ALL_DISCUSSIONS();'))
 }
 
 exports.getAllDiscussionsWithSearch = async () => {
@@ -35,7 +35,7 @@ SET @USER_ID = 1;
 SET @TOPIC_ID = 0;
 SET @TITLE = 'A ridiculously awesome title';
 SET @BODY = 'A very short body';*/
-    return(await pool.promise().query('CALL CREATE_DISCUSSION(1,0,A ridiculously awesome title, A very short body'));
+    return(await pool.promise().query('CALL CREATE_DISCUSSION(1,0,\'A ridiculously awesome title for Oliver\\\'s test\', \'A very short body\');'));
 }
 
 exports.createPost = async () => {
