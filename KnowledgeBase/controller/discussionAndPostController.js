@@ -11,11 +11,7 @@ exports.addDisucssion = async (req, res) => {
 */
 
 exports.getRoot = async (req, res) => {
-    console.log((await db.getAllDiscussions())[0][0]);
-    /*console.log('test');
-    console.log((await db.getTopics())[0][0]);
-    res.send((await db.getTopics())[0][0])
-    return(await db.getTopics())*/
+    return(await db.getTopics())
     db.getTopics().then(([data,metadata])=>{
         console.log("IN get topics");
         let topics = data;
@@ -27,7 +23,7 @@ exports.getRoot = async (req, res) => {
     });
 
 }
-
+/*
 exports.getTopics = async (req, res) => {
 
     db.getTopics()
@@ -44,7 +40,7 @@ exports.getTopics = async (req, res) => {
     return(await db.getTopics());
     //return("john");
     //res.render('main-layout.hbs', {topics: await db.getTopics()});
-}
+}*/
 
 exports.getTopic = async (req, res) => {
     //topic id
