@@ -4,6 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const routes = require('./routes/routes');
 const expressHbs = require('express-handlebars');
+const session = require('express-session')
 
 app
   .engine(
@@ -18,6 +19,11 @@ app
   .set('views', 'views')
   .use(bodyParser.urlencoded({ extended: false }))
   .use(bodyParser.json())
+  .use(session({
+    secret: 'some_secret',
+    resave: false,
+    saveUninitialized: false
+  }))
   .use(express.static(path.join(__dirname, 'public')))
   .use(routes)
   .listen(process.env.PORT || 3002);
