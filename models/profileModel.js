@@ -1,8 +1,6 @@
 const profileDb = require('../Database/databaseConnection');
 
 exports.createUser = (user) => {
-    console.log("IN CREATE USER")
-    console.log(user)
     const sql =
         `
             CALL CREATE_USER(
@@ -20,23 +18,13 @@ exports.createUser = (user) => {
 }
 
 exports.registerUser = (data, id) => {
-    // const sql = 
-    //     `
-    //         UPDATE USERS
-    //         SET 
-    //             PROFILE_IMAGE_URL = '${data.imgURL}',
-    //             COUNTRY = '${data.country}',
-    //             ABOUT = '${data.about}',
-    //             DATE_OF_BIRTH = '${data.birthdate}'
-    //         WHERE ID=${id}
-    // `;
     const sql = 
         `
             CALL MODIFY_USER(
                 ${id},
-                '${data.fname}',
-                '${data.lname}',
-                '${data.email}',
+                NULL,
+                NULL,
+                NULL,
                 '${data.imgURL}',
                 '${data.country}',
                 '${data.about}'
