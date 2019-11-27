@@ -10,7 +10,6 @@ CALL CREATE_USER('littlej', 'John', ' Hoang', 'johnquochoang@gmail.com', 'https:
     'I am just a rag tag bunch of mistakes and regrets balled together into a sexy asian form, #fuckyoujeff');
 CALL GET_USER_DISCUSSIONS(1);
 CALL GET_ALL_DISCUSSIONS();
-CALL GET_DISCUSSIONS(1, 1);
 CALL GET_DISCUSSIONS_WITH_SEARCH(NULL, 'hello');
 CALL GET_POSTS_FOR_DISCUSSION(1);
 CALL CREATE_DISCUSSION(1, 0, 'A ridiculously awesome title', 'A very short body');
