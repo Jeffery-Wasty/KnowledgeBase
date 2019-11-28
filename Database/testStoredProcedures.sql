@@ -18,6 +18,7 @@ CALL CREATE_POST(1, 1, 'A random sadhlgashdglasdjg post body');
 CALL GET_USER_CONVERSATIONS(1);
 CALL GET_MESSAGES_FOR_CONVERSATION(1);
 CALL CREATE_CONVERSATION(1, 2, 'This is my really awesome subject', 'And here is my less awesome message');
+CALL CREATE_MESSAGE(0, 2, 'I do hope this message is in the right conversation');
 
 
 
