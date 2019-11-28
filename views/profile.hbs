@@ -1,23 +1,36 @@
-<div class="search-box">
-    <h3 class="title is-3">Artist Directory</h3>
-    <div class="wrapper">
-        <input class="input" id="search-field" type="text" aria-label="Search" placeholder="Search" />
-        <button type="button" class="artist-button button is-light" onclick="showAddArtist()">
-            Add Artist
-        </button>
-        <button type="button" class="search-button button is-light" onclick="searchArtist()">
-            Search
-        </button>
+{{>header}}
+<div class="top-half">
+    <div id="user-image">
+        <a href="#"><img src="{{UserData.PROFILE_IMAGE_URL}}" alt="user-img" id="profile-pic"></a>
+    </div>
+    <div class="info">
+        <p id="name">
+            {{UserData.FIRST_NAME}} {{UserData.LAST_NAME}}
+        </p>
+        <p id="position">
+            {{UserData.ABOUT}}
+        </p>
+        <p id="location">
+            {{UserData.COUNTRY}}
+        </p>
+    </div>
+    <div class="extra">
+        <a href="/user/message/{{UserData.ID}}">
+            <button id="message" type="button">Message</button>
+        </a>
+        <div class="like">
+            <p id="likes">
+                5 Likes
+            </p>
+            <button id="add-like" type="button">+</button>
+        </div>
+        <p id="post-number">
+            {{numPost}} Posts
+        </p>
     </div>
 </div>
-<div class="add-artist-box" id="add-artist-box">
-    <form id="artist-form">
-        <input class="form-fields input" type="text" id="name-field" maxlength="40" placeholder="Artist name" />
-        <input class="form-fields input" type="text" id="about-field" maxlength="40" placeholder="About artist" />
-        <input class="form-fields input" id="image-field" type="text" placeholder="Image URL" />
-    </form>
-    <button type="button" class="add-button button is-light" onclick="addArtist()">
-        Add
-    </button>
+<p id="all-posts">
+    All posts by {{UserData.FIRST_NAME}}
+</p>
+{{>post}}
 </div>
-<div class="artist-list" id="artist-list"></div>

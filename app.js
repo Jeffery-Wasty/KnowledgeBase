@@ -10,7 +10,7 @@ app
     'hbs',
     expressHbs({
       layoutsDir: 'views/layouts',
-      defaultLayout: 'default',
+      defaultLayout: 'main-layout',
       extname: 'hbs'
     })
   )

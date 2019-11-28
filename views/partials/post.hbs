@@ -1,0 +1,40 @@
+{{#each Posts}}
+<div class="postContainer row">
+
+    <div class="col-sm-3">
+        <div class="postUserImageDiv">
+            <a href="/user/profile/{{this.profile_id_fk}}">
+                <img id="postUserImage" class="rounded-circle shadow-sm"
+                    src="{{this.image_url}}" width="100" height="100">
+            </a>
+        </div>
+    </div>
+
+    <div class="col-sm-9">
+
+        <div class="heading">
+            <h3 class="d-inline">{{this.subject}}</h3>
+            <button id="catergoryIndicator" class="btn btn-outline-primary my-2 my-sm-0 d-inline"
+                type="submit">{{this.topic}}</button>
+        </div>
+
+        <div id="content">
+            <p>{{this.description}}</p>
+        </div>
+
+        <div id="footer">
+            <p id="datePosted" class="d-inline">{{this.timestamp}}</p>
+            <a href="#">
+                <h5 id="numReplies" class="d-inline">{{numReplies}} replies</h5>
+            </a>
+        </div>
+
+        {{!-- {{#each this.replies}}
+
+        <p>{{this.reply}}</p>
+
+        {{/each}} --}}
+    </div>
+
+</div>
+{{/each}}
