@@ -1,0 +1,261 @@
+#searchKey {
+  max-width: 380px;
+}
+
+.red-point {
+  position: relative;
+}
+
+.red-point::before {
+  content: " ";
+  border: 5px solid red;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1000;
+  right: 0%;
+  margin-right: -12px;
+  margin-top: -8px;
+}
+
+#chat {
+  overflow: hidden;
+  border-radius: 3px;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+
+#chat .sidebar {
+  float: left;
+  width: 360px;
+  color: #f4f4f4;
+  background-color: #2e3238;
+}
+
+#chat .main {
+  position: relative;
+  overflow: hidden;
+  background-color: #eee;
+}
+
+.m-text {
+  position: relative;
+  bottom: 0;
+  margin-left: 50px;
+}
+
+.m-message {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.body-content,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.body-content {
+  color: #4d4d4d;
+  font: 14px/1.4em "Helvetica Neue", Helvetica, "Microsoft Yahei", Arial,
+    sans-serif;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+  max-width: 100%;
+  margin: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+.text {
+  max-width: 600px;
+}
+
+.properties {
+  font-size: 9pt;
+  padding: 0px 10px;
+  color: rgba(68, 200, 202, 1);
+}
+
+.m-card {
+  padding: 12px;
+  color: #080808;
+  background-color: #f5f5f5;
+}
+
+.m-card .avatar,
+.name {
+  vertical-align: middle;
+}
+
+.m-card .avatar {
+  border-radius: 2px;
+}
+
+.m-card .name {
+  display: inline-block;
+  margin: 0 0 0 15px;
+  font-size: 16px;
+}
+
+.m-list {
+  overflow-y: scroll;
+  height: 800px;
+}
+
+.m-list li:not(.properties) {
+  padding: 12px 15px;
+  border-bottom: 1px solid #292c33;
+  cursor: pointer;
+  transition: background-color 0.1s;
+  max-height: 50px;
+}
+
+.searchable:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.searchable.active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.m-list .avatar,
+.name {
+  vertical-align: middle;
+}
+
+.m-list .avatar {
+  border-radius: 2px;
+}
+
+.m-list .name {
+  display: inline-block;
+  margin: 0 0 0 15px;
+}
+
+.m-message {
+  padding: 10px 15px;
+  overflow-y: scroll;
+  height: 600px;
+}
+
+.m-message li {
+  margin-bottom: 15px;
+}
+
+.m-message .time {
+  margin: 7px 0;
+  text-align: center;
+}
+
+.m-message .time > span {
+  display: inline-block;
+  padding: 0 18px;
+  font-size: 12px;
+  color: #fff;
+  border-radius: 2px;
+  background-color: #dcdcdc;
+}
+
+.m-message .avatar {
+  float: left;
+  margin: 0 10px 0 0;
+  border-radius: 3px;
+}
+
+.m-message .text {
+  display: inline-block;
+  position: relative;
+  padding: 0 10px;
+  min-height: 30px;
+  line-height: 2.5;
+  font-size: 12px;
+  text-align: left;
+  word-break: break-all;
+  background-color: #fafafa;
+  border-radius: 4px;
+}
+
+.m-message .text:before {
+  content: " ";
+  position: absolute;
+  top: 9px;
+  right: 100%;
+  border: 6px solid transparent;
+  border-right-color: #fafafa;
+}
+
+.m-message .self {
+  text-align: right;
+}
+
+.m-message .self .avatar {
+  float: right;
+  margin: 0 0 0 10px;
+  margin-top: 5px;
+}
+
+.m-message .self .text {
+  background-color: #b2e281;
+}
+
+.m-message .self .text:before {
+  right: inherit;
+  left: 100%;
+  border-right-color: transparent;
+  border-left-color: #b2e281;
+}
+
+.m-text {
+  height: 247px;
+  border-top: solid 1px #ddd;
+}
+
+.m-text textarea {
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-family: "Micrsofot Yahei";
+  resize: none;
+  margin-left: 40px;
+  margin-top: 30px;
+  min-width: 600px;
+}
+
+.send {
+  float: right;
+  margin-right: 50px;
+}
+
+#selected-card {
+  border-bottom: groove;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: small;
+}
+.date::before,
+.date::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #dcdcdc;
+}
+.date::before {
+  margin-right: 0.25em;
+}
+.date::after {
+  margin-left: 0.25em;
+}

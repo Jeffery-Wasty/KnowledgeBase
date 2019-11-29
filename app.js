@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const routes = require('./routes/routes');
 const expressHbs = require('express-handlebars');
 const session = require('express-session')
+const socket = require("./controllers/websocket")
 
 app
   .engine(
@@ -26,4 +27,6 @@ app
   }))
   .use(express.static(path.join(__dirname, 'public')))
   .use(routes)
-  .listen(process.env.PORT || 3002);
+
+const server = socket.start(app);
+server.listen(process.env.PORT || 3002, console.log("server running"));
