@@ -6,6 +6,19 @@ document.addEventListener("DOMContentLoaded", () => {
     getMsgPush()
 });
 
+const search = () => {
+    const filter = document.getElementById("searchKey").value
+    document.querySelectorAll(".m-list .searchable").forEach(e => {
+        if (e.querySelector(".name").textContent.search(new RegExp(filter, "i")) < 0 &&
+            e.querySelector(".properties").textContent.search(new RegExp(filter, "i")) < 0) {
+            e.style.display = "none";
+        } else {
+            e.style.display = "block";
+        }
+    })
+}
+
+
 const send = () => {
     const data = {
         conversation_id: document.getElementById("conversation_id").value,
