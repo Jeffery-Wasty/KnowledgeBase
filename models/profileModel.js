@@ -18,7 +18,7 @@ exports.createUser = (user) => {
 }
 
 exports.registerUser = (data, id) => {
-    const sql = 
+    const sql =
         `
             CALL MODIFY_USER(
                 ${id},
@@ -34,12 +34,19 @@ exports.registerUser = (data, id) => {
 }
 
 exports.login = (data) => {
-    const sql = 
+    const sql =
         `
             CALL GET_USER_PER_EMAIL_PASSWORD(
                 '${data.email}',
                 '${data.password}'
             )
+        `
+    return profileDb.execute(sql);
+}
+
+exports.getUserProfile = user_id => {
+    const sql =
+        `SELECT * FROM knowledgebase.users where id = '${user_id}'
         `
     return profileDb.execute(sql);
 }
