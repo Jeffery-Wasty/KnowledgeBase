@@ -1,7 +1,7 @@
 <div class="container mt-8">
     <div id="chat">
         <div class="sidebar">
-            <input size="100" type="text" id="searchKey" placeholder="search" />
+            <input size="100" type="text" id="searchKey" placeholder="search" onkeyup="search()" />
             <ul class="m-list">
                 {{#each conversations}}
                 <div class='searchable' onclick="fetchMsg('{{this.ID}}')" id="{{this.ID}}">

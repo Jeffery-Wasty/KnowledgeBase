@@ -85,7 +85,7 @@ exports.getMessages = (req, res) => {
     if (conversation_id) {
         msgModel.get_messages_for_conversations(conversation_id, req.session.userId).then(data => {
             if (data[0] && data[0][0]) {
-                update_read(conversation_id, req.session.userId).then(receiver_id => {
+                update_read(conversation_id, req.session.userId, true).then(receiver_id => {
                     res.json({
                         self_id: req.session.userId,
                         receiver_id: receiver_id,
@@ -108,7 +108,9 @@ exports.sendMessage = (req, res) => {
     }
     msgModel.create_message(message).then(data => {
         if (data[0] && data[0][0] && data[0][0][0]) {
-            res.json(data[0][0][0])
+            update_read(req.body.conversation_id, req.session.userId, false).then(() => {
+                res.json(data[0][0][0])
+            })
         }
     }).catch(err => {
         console.log(err.message)
@@ -116,17 +118,23 @@ exports.sendMessage = (req, res) => {
     })
 }
 
-const update_read = async (conversation_id, user_id) => {
+const update_read = async (conversation_id, user_id, hasRead) => {
     let data = await msgModel.get_conversation_info(conversation_id);
     let receiver_id = -1;
     if (data[0] && data[0][0]) {
         let read = data[0][0].READ
         if (user_id == data[0][0].USER_ID_1) {
-            read |= 1
+            if (hasRead)
+                read |= 1
+            else
+                read &= 1
             receiver_id = data[0][0].USER_ID_2
         }
         if (user_id == data[0][0].USER_ID_2) {
-            read |= 2
+            if (hasRead)
+                read |= 2
+            else
+                read &= 2
             receiver_id = data[0][0].USER_ID_1
         }
         data = await msgModel.set_read(conversation_id, read)
