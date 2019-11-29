@@ -1,3 +1,4 @@
+require("./utils/envUtil");
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -5,7 +6,7 @@ const bodyParser = require('body-parser');
 const routes = require('./routes/routes');
 const expressHbs = require('express-handlebars');
 const session = require('express-session')
-const socket = require("./controllers/websocket")
+const socket = require("./utils/websocket")
 
 app
   .engine(

@@ -1,6 +1,6 @@
 const profileModel = require('../models/profileModel');
 const msgModel = require('../models/msgModel');
-const ws = require('./websocket')
+const ws = require('../utils/websocket')
 
 exports.messagePage = (req, res) => {
     if (req.query.user_id || req.query.user_id != req.session.userId) {
