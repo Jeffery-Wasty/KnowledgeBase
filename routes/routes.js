@@ -15,13 +15,13 @@ const redirectLogin = (req, res, next) => {
   }
 };
 
-/**Login and Sign Up routes**/
 router.get('/', authController.loginPage);
-router.get('/notLoggedIn', authController.notLoggedIn);
+router.get('/notLoggedIn', authController.notLoggedIn)
 router.post('/signUp', authController.signUp);
 router.post('/login', authController.login);
 router.get('/registerPage', redirectLogin, authController.registerPage);
-router.post('/register', authController.register);
+router.post('/register', authController.register)
+
 //router.get('/:id', profileController.serve);
 
 router.get('/messagePage', redirectLogin, msgController.messagePage);

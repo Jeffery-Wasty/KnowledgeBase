@@ -1,0 +1,35 @@
+<div class="container mt-8">
+    <div class="row">
+        <div class="col-4">
+            <h1 class="col mt-4">Knowledge <span class="text-primary">Base</span></h1>
+            <img class="img-fluid" src="/images/logo.jpg" >
+        </div>
+        <div class="col-8 mt-4">
+            <div class="form-inline">
+                <form class="login-form" method="POST" action="/login">
+                    <input class="form-control" type="text" name="email" placeholder="email" required>
+                    <input class="form-control" type="password" name="password" placeholder="password" required>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+                {{err}}
+                <h1 class="mb-3">Join the Darkweb</h1>
+            <div class="form">
+                <form method="POST" action="/signUp">
+                    <div class="form-row">
+                        <div class="col-4">
+                            <input class="form-control mb-3" type="text" name="fname" placeholder="firstname" required>
+                        </div>
+                        <div class="col-4">
+                            <input class="form-control mb-3" type="text" name="lname" placeholder="lastname" required>
+                        </div>
+                    </div>
+                    <input class="form-control col-8 mb-3" type="text" name="email" placeholder="email" required>
+                    <input class="form-control col-8 mb-3" type="password" name="password" placeholder="password" required>
+                    <input class="form-control col-8 mb-3" type="password" name="confirm_pass" placeholder="confirm password" required>
+                    <button type="submit" class="btn btn-primary col-8">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
