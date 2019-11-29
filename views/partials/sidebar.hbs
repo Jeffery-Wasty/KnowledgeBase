@@ -1,0 +1,39 @@
+<div id="userInfo">
+    <div id="imgContainer">
+        <img id="userImg" class="rounded-circle shadow-sm" src="{{UserData.PROFILE_IMAGE_URL}}">
+    </div>
+    <h2>{{UserData.FIRST_NAME}} {{UserData.LAST_NAME}}</h2>
+    <p id="description">{{UserData.ABOUT}}</p>
+
+    <div id="stats">
+        <table>
+            <tr>
+                <td>
+                    <a id="postsLabel" href="#" class="d-inline link">Posts</a>
+                </td>
+                <td>
+                    <p id="numPosts" class="d-inline">{{UserData.numPosts}}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a id="messagesLabel" href="/profile/message" class="d-inline link">Messages</a>
+                </td>
+                <td>
+                    <p id="numMessages" class="d-inline">3</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a id="likesLabel" href="#" class="d-inline link">Likes</a>
+                </td>
+                <td>
+                    <p id="numLikes" class="d-inline">3</p>
+                </td>
+            </tr>
+        </table>
+        <div id="editContainer">
+            <br />
+            <a href="#" class="link">Edit Profile</a>
+        </div>
+    </div>
