@@ -1,9 +1,9 @@
-const profileModel = require('../models/profileModel');
+const userModel = require('../models/userModel');
 
 exports.serveProfile = (req, res) => {
   let userData;
   let id = req.params.id;
-  let user = profileModel.findUser(id);
+  let user = userModel.findUser(id);
 
   user.then(data => {
     userData = {
@@ -26,7 +26,7 @@ exports.serveProfile = (req, res) => {
 exports.profileAllPosts = (req, res) => {
   let userData;
   let id = req.params.id;
-  let user = profileModel.findUser(id);
+  let user = userModel.findUser(id);
 
   user.then(data => {
     userData = {
