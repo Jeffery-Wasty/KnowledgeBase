@@ -1,9 +1,10 @@
 const profileModel = require('../models/profileModel');
 const msgModel = require('../models/msgModel');
 const ws = require('../utils/websocket')
+const es = require('../utils/emailServices')
 
 exports.messagePage = (req, res) => {
-    if (req.query.user_id || req.query.user_id != req.session.userId) {
+    if (req.query.user_id && req.query.user_id != req.session.userId) {
         profileModel.getUserProfile(req.query.user_id).then(data => {
             if (data[0] && data[0][0] && data[0][0].PROFILE_IMAGE_URL) {
                 res.render('messagePage', {
@@ -16,11 +17,13 @@ exports.messagePage = (req, res) => {
             else {
                 //to do 
                 //user not found, redirect to last page
+                res.send("user not found")
             }
         })
     } else {
         //to do 
         //cant message yourslef, redirect to last page
+        res.send("please provide a destination user of your message (can't message yourself)")
     }
 }
 
@@ -44,6 +47,9 @@ exports.startConversation = (req, res) => {
                         conversation["profile_img"] = profile_img
                         conversation["name"] = name
                         ws.pushMsg(conversation)
+                        es.sendEmail(data[0][0].EMAIL, name, err => {
+                            if (err) console.log("email sending failed: ", err)
+                        })
                         res.redirect(303, '/conversationPage')
                     }
                 })

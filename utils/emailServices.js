@@ -1,8 +1,6 @@
 const nodemailer = require('nodemailer');
 
-
-
-exports.sendEmail = (sendFrom, sendTo, senderName, callback) => {
+const sendEmail = (sendTo, senderName, callback) => {
     const transporter = nodemailer.createTransport({
         "host": process.env.SMTP_HOST,
         "port": process.env.SMTP_PORT,
@@ -14,10 +12,14 @@ exports.sendEmail = (sendFrom, sendTo, senderName, callback) => {
     });
 
     const mailOptions = {
-        from: sendFrom,
+        from: process.env.SMTP_SEND_ADDRESS,
         to: sendTo,
         subject: 'You got an new Conversation from KnowledgeBase',
-        text: `<h1>${senderName} has started an conversation with you</h1>`
+        text: `${senderName} has started an conversation with you`
     };
     transporter.sendMail(mailOptions, callback);
 }
+
+exports.sendEmail = sendEmail
+
+
