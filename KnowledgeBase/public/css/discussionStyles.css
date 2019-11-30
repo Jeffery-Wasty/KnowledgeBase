@@ -8,6 +8,7 @@ body {
 .discussionPartial {
     background-color:white;
     width: 400px;
+    height: 120px;
 }
 
 .userPortraitContainer {

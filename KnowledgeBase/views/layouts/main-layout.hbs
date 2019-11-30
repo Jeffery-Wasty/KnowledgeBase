@@ -13,8 +13,12 @@
 <body>
     <header class="main-header">
     </header>
+    {{{body}}}
+    {{#if showdnp}}
         {{> addDiscussionPartial topics=topics user=user}}
         {{> discussionPartial discussions=dicussions}}
         {{> addPostPartial}}
+        {{postPartial}}
+    {{/if}}
 </body>
 </html>

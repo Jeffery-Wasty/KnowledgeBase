@@ -1,5 +1,6 @@
+{{#each discussions}}
 <div class="discussionPartial">
-    {{#each discussions}}
+
         <div class="userPortraitContainer">
             <img class="userPortrait" src="{{this.PROFILE_IMG_URL}}"></img>
         </div>
@@ -26,6 +27,6 @@
                     <input class="replyButton" type="submit" value="{{this.REPLY_COUNT}} replies"></input>
                 </form>
             </div>
-        </div>
-    {{/each}}   
+        </div>  
 </div>
+{{/each}}   

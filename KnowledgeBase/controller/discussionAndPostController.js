@@ -19,7 +19,7 @@ exports.getRoot = async (req, res) => {
         db.getAllDiscussions().then(([data,metadata])=>{
             let discussions = data[0];
             //console.log(discussions);
-            res.render('main-layout', {dicussions: discussions, topics: topics})
+            res.render('main-layout', {dicussions: discussions, topics: topics, showdnp : true})
         })
     });
 
@@ -64,7 +64,7 @@ exports.getPostsForDiscussion = async (req, res) => {
     await db.getPostsForDiscussion(req.body.discussionID).then(([data,metadata])=>{
         let posts = data[0];
         console.log(posts);
-        res.render('../discussionAndPostView.hbs', {posts: posts, dicussions: req.body.discussion})
+        res.render('discussionAndPostView', {posts: posts, dicussions: req.body.discussion, showdnp: false})
     })
 }
 exports.createDiscussion = async (req, res) => {
