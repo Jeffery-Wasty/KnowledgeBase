@@ -63,8 +63,10 @@ exports.getPostsForDiscussion = async (req, res) => {
     //TODO fix re-rendering of main layout do conditionals or something else
     await discPostModel.getPostsForDiscussion(req.body.discussionID).then(([data,metadata])=>{
         let posts = data[0];
-        //console.log(posts);
-        res.render('discussionAndPostView', {posts: posts, dicussions: req.body.discussion, discCSS: true})
+        discPostModel.getDiscussion(req.body.discussionID).then(([data, metadata])=>{
+            let discussion = data[0];
+            res.render('discussionAndPostView', {posts: posts, discussions: discussion, discCSS: true})
+        })
     })
 }
 exports.createDiscussion = async (req, res) => {
@@ -72,8 +74,7 @@ exports.createDiscussion = async (req, res) => {
     res.redirect(301, '/homePage')
 }
 exports.createPost = async (req, res) => {
-    console.log("insidecreatectrl")
-    //user id, discussion id, post body
-    res.send(await discPostModel.createPost(req.session.userId, req.body.discussionID, req.body.body))
-    res.render('/getPostsForDiscussion');
+    console.log(req.session.userId, req.body.discussionID, req.body.postBody);
+    await discPostModel.createPost(req.session.userId, req.body.discussionID, req.body.postBody);
+    //res.render('/getPostsForDiscussion');
 }

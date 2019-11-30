@@ -1,4 +1,5 @@
 const profileModel = require('../models/profileModel');
+const discussionModel = require('../models/discussionAndPostModel');
 
 //from '/'. First thing user needs to do is to login and/or signup to set req.session.userId
 exports.loginPage = (req, res) => {
@@ -39,7 +40,6 @@ exports.login = (req, res) => {
             if (data[0] && data[0][0] && data[0][0].ID) {
                 // SET REQ.SESSION.USERID AS CURRENT USER
                 req.session.userId = data[0][0].ID;
-                //IF DATABASE HAS USER AND MATCHING PASSOWRD, IMPLEMENT REDIRECT TO /mainPage/:id
                 res.redirect('/homePage');
             } else {
                 res.render('loginPage', {layout: 'signUp', err: 'Wrong password or email'})

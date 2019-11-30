@@ -12,6 +12,10 @@ exports.getTopic = async () => {
     return(db.query('CALL GET_TOPICS(id);'));
 }
 
+exports.getDiscussion = async (discussionID) =>{
+    return(db.query('CALL GET_DISCUSSION('+ discussionID +')'));
+}
+
 exports.getAllDiscussions = async () => {
     //CALL GET_ALL_DISCUSSIONS()
     return(db.query('CALL GET_ALL_DISCUSSIONS();'))
@@ -24,7 +28,6 @@ exports.getAllDiscussionsWithSearch = async () => {
 }
 
 exports.getPostsForDiscussion = async (discussionID) => {
-    console.log('CALL GET_POSTS_FOR_DISCUSSION('+ discussionID +')');
     return(db.query('CALL GET_POSTS_FOR_DISCUSSION('+ discussionID +')'));
 }
 
@@ -32,9 +35,8 @@ exports.createDiscussion = async (userID, topicID, discussionBody, discussionSub
     return(db.query('CALL CREATE_DISCUSSION(' + userID + ',' + topicID + ',\'' + discussionBody + '\',\''+ discussionSubject + '\')'));
 }
 
-exports.createPost = async () => {
-
-    return(db.query('CALL CREATE_POST(1,0, A very short  POST body'));
+exports.createPost = async (userID, discussionID, postBody) => {
+    return(db.query('CALL CREATE_POST(' + userID + ',' + discussionID + ',\'' + postBody +'\')'));
 }
 
 
@@ -52,7 +54,7 @@ exports.test = async function test(){
 }
 
 
-async function addDummyData(){
+exports.addDummyData = async function test(){
     return(db.query((await util.promisify(fs.readFile)('./Database/dummyData.sql')).toString()));
 }
 /*

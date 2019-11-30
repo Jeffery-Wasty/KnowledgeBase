@@ -1,5 +1,6 @@
 <div class="addPostContainer">
     <form id="addPostForm" action="createPost" method="POST">
+        <input type="hidden" name = "discussionID" value ={{#each discussions}}{{this.ID}}{{/each}}></input>
         <textarea class="addPostField" name="postBody" form="addPostForm" placeholder="Add your reply..."></textarea>
         <input class="commentButton" type="submit" value="Comment"></input>
     </form>

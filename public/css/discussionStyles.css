@@ -5,8 +5,14 @@ body {
     color: gray;
 }
 
+.discussionPartialContainer {
+    width: 400px;
+}
+
 .discussionPartial {
     background-color:white;
+    width: 400px;
+    height: 120px;
 }
 
 .userPortraitContainer {
