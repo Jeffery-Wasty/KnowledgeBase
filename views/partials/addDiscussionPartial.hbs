@@ -1,0 +1,17 @@
+<div class="addDiscussionContainer">
+    <div class="addDiscussionTitle">What is your question?</div>
+    <div class="hiddenDiv" name="userID"></div>
+    <form id="addDiscussionForm" action="createDiscussion" method="POST">
+        <input type="hidden" name="userID" value="1"></input> <!--REMOVE, using req.session.userId within controller      value="{{user.ID}}-->
+        <textarea id="addDiscussionSubjectInput" type="text" name="discussionSubject" placeholder="Subject" form="addDiscussionForm"></textarea>
+        <textarea id="addDiscussionBodyInput" type="text" name="discussionBody" placeholder="Explain in detail..." form="addDiscussionForm"></textarea>
+        <div class="addDiscussionFooter">
+            <input type="submit" class="postButton" value="Post to Timeline"></input>
+            <select id="discussionTopicDropDown" name="topicID">
+                {{#each topics}}
+                    <option value={{this.ID}}>{{this.TOPIC}}</option>
+                {{/each}}
+            </select>
+        </div>
+    </form>
+</div>

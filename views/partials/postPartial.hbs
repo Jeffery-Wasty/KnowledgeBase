@@ -1,0 +1,11 @@
+{{#each posts}}
+<div class="postPartial">
+    <div class="postUserPortraitContainer">
+        <img class="postUserPortrait" src="{{this.PROFILE_IMG_URL}}"></img>
+    </div>
+    <div class="postBody">
+            {{this.POST_BODY}}
+    </div>
+</div>
+{{/each}}
+

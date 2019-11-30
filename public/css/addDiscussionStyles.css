@@ -1,0 +1,54 @@
+.addDiscussionContainer {
+    width: 400px;
+}
+
+.addDiscussionTitle {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+#addDiscussionSubjectInput {
+    height: 20px;
+    width: 100%;
+    margin-bottom: 10px;
+    padding:4px;
+    color:gray;
+    font-family:Arial, Helvetica, sans-serif;
+    resize: none;
+}
+
+#addDiscussionBodyInput {
+    height:60px;
+    width: 100%;
+    padding:4px;
+    color:gray;
+    font-family:Arial, Helvetica, sans-serif;
+    resize: none;
+}
+
+
+.addDiscussionFooter {
+    margin-top: 10px;
+}
+
+#discussionTopicDropDown {
+    float:right;
+    margin-right: 5px;
+    margin-top:5px;
+    height: 20px;
+}
+
+.postButton {
+    margin-top:5px;
+    float: right;
+    background-color:dodgerblue;
+    color:white;
+    text-align: center;
+    text-decoration: none;
+    border: solid 1px transparent;
+    width: 30%;
+}
+
+.hiddenDiv {
+    display:none;
+}
