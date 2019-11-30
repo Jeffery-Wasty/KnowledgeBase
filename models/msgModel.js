@@ -44,7 +44,7 @@ exports.create_message = (message) => {
 exports.get_conversation_info = (conversation_id) => {
     const sql =
         `
-        SELECT USER_ID_1, USER_ID_2, c.READ FROM knowledgebase.conversations c WHERE ID = ${conversation_id};
+        SELECT USER_ID_1, USER_ID_2, c.READ FROM conversations c WHERE ID = ${conversation_id};
         `
     return db.execute(sql);
 }
@@ -52,7 +52,7 @@ exports.get_conversation_info = (conversation_id) => {
 exports.set_read = (conversation_id, read) => {
     const sql =
         `
-        UPDATE knowledgebase.conversations c SET c.READ = '${read}' WHERE (\`ID\` = ${conversation_id});
+        UPDATE conversations c SET c.READ = '${read}' WHERE (\`ID\` = ${conversation_id});
         `
     return db.execute(sql);
 }

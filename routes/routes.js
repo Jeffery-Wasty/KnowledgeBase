@@ -24,13 +24,13 @@ const logout = (req, res) => {
     res.redirect('/');
 }
 
-/**Login and Sign Up routes**/
 router.get('/', authController.loginPage);
 router.get('/notLoggedIn', authController.notLoggedIn)
 router.post('/signUp', authController.signUp);
 router.post('/login', authController.login);
 router.get('/registerPage', redirectLogin, authController.registerPage);
 router.post('/register', authController.register)
+
 //router.get('/:id', profileController.serve);
 
 /**Home Page routes **/
@@ -53,5 +53,7 @@ router.get('/conversationPage', redirectLogin, msgController.conversationPage);
 router.get('/messages/get', redirectLogin, msgController.getMessages);
 router.post('/message/send', msgController.sendMessage);
 
+router.get('/homePage/:id', profileController.serveProfile);
+router.get('/profile/posts/:id', profileController.profileAllPosts);
 
 module.exports = router;
