@@ -1,0 +1,56 @@
+#userInfo {
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 30%;
+  text-align: center;
+}
+
+#userInfo h2 {
+  font-size: 25px;
+}
+
+#description {
+  font-size: 18px;
+  font-weight: 200;
+}
+
+#imgContainer {
+  text-align: center;
+  margin: 10%;
+}
+
+#userImg {
+  width: 60%;
+}
+
+#stats {
+  margin-top: 15%;
+  margin-left: 0%;
+  text-align: left;
+}
+
+#postsLabel {
+  color: black;
+}
+
+#messagesLabel {
+  color: black;
+}
+
+#likesLabel {
+  color: black;
+}
+
+#stats table {
+  margin: 0 auto;
+  border-spacing: 30px 5px;
+  border-collapse: separate;
+}
+
+#editContainer {
+  text-align: center;
+}
+
+#editContainer a {
+  color: black;
+}

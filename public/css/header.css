@@ -1,0 +1,26 @@
+.nav {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.search-field {
+  display: inline;
+}
+
+.search-field form input {
+  background-color: #e1e9ee;
+}
+
+.logout-button {
+  margin-left: auto;
+}
+
+.logout-button form button {
+  background-color: #0a94de;
+  width: 100%;
+  color: white;
+}
+
+.logout-button form {
+  width: 200%;
+}
