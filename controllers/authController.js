@@ -2,12 +2,12 @@ const profileModel = require('../models/profileModel');
 
 //from '/'. First thing user needs to do is to login and/or signup to set req.session.userId
 exports.loginPage = (req, res) => {
-    res.render('loginPage', {layout: 'signUp'});
+    res.render('loginPage');
 }
 
 //from anywhere if req.session.userId was undefined, ridrectLogin brings it back to loginPage
 exports.notLoggedIn = (req, res) => {
-    res.render('loginPage', {layout: 'signUp', err:'Login First'});
+    res.render('loginPage', { err:'Login First'});
 }
 //from POST /signup.  Creates user and then login right away to set session id for registration
 exports.signUp = (req, res) => {
@@ -29,7 +29,7 @@ exports.signUp = (req, res) => {
                 res.redirect(403, '/');
             })
     } else {
-        res.render('loginPage', {layout: 'signUp', err: "Password Did not match"})
+        res.render('loginPage', { err: "Password Did not match"})
     }
 }
 //from POST /login. Finds user in db via email/password, if user exists, set session id, else display "wrong pass or email"

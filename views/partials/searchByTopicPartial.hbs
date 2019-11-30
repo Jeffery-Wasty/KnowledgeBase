@@ -1,0 +1,20 @@
+<div class="homePageBlock">
+    <div class="searchByTopicContainer">
+        <div class="searchByTopicTitle">
+            Search By Topic
+        </div>
+        <div class="dropDownContainer">
+            <select id="searchTopicDropDown">
+                {{#each topics}}
+                    <option>{{this.TOPIC}}</option>
+                {{/each}}
+            </select>
+            <button class="regularButton" onclick="getAllDiscussionsWithSearch">
+                Go
+            </button>
+        </div>
+    </div>
+    <div class="latestDiscussionsTitle">
+        Latest Discussions
+    </div>
+</div>

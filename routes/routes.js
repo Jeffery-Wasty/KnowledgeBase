@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/authController');
 const msgController = require('../controllers/msgController');
+const profileController = require('../controllers/profileController');
+const disccussionController = require('../controllers/discussionAndPostController');
+const homeController = require('../controllers/homeController');
 
 //redirectLogin Middleware
 //if user is not logged in (!req.session.userId), all routes using this middleware will redirect user to login
@@ -13,6 +16,13 @@ const redirectLogin = (req, res, next) => {
         next();
     }
 }
+//Middleware to logout when logout button clicked
+const logout = (req, res) => {
+    if (req.session.userId) {
+        req.session.userId = undefined;
+    }
+    res.redirect('/');
+}
 
 /**Login and Sign Up routes**/
 router.get('/', authController.loginPage);
@@ -23,6 +33,20 @@ router.get('/registerPage', redirectLogin, authController.registerPage);
 router.post('/register', authController.register)
 //router.get('/:id', profileController.serve);
 
+/**Home Page routes **/
+router.get('/homePage', redirectLogin, homeController.homePage);
+router.post('/logout', logout);
+
+/**Profile **/
+router.get('/profile/:id', redirectLogin, profileController.serveProfile)
+
+/**Post and Discussion Routes **/
+router.post('/getPostsForDiscussion', disccussionController.getPostsForDiscussion);
+router.post('/createDiscussion', disccussionController.createDiscussion);
+router.post('/createPost', disccussionController.createPost);
+
+
+/** Live messaging  **/
 router.get('/messagePage', redirectLogin, msgController.messagePage);
 router.post('/conversation/start', msgController.startConversation);
 router.get('/conversationPage', redirectLogin, msgController.conversationPage);

@@ -1,0 +1,36 @@
+{{>header}}
+<div class="top-half">
+    <div id="user-image">
+        <a href="#"><img src="{{UserData.PROFILE_IMAGE_URL}}" alt="user-img" id="profile-pic"></a>
+    </div>
+    <div class="info">
+        <p id="name">
+            {{UserData.FIRST_NAME}} {{UserData.LAST_NAME}}
+        </p>
+        <p id="position">
+            {{UserData.ABOUT}}
+        </p>
+        <p id="location">
+            {{UserData.COUNTRY}}
+        </p>
+    </div>
+    <div class="extra">
+        <a href="/user/message/{{UserData.ID}}">
+            <button id="message" type="button">Message</button>
+        </a>
+        <div class="like">
+            <p id="likes">
+                5 Likes
+            </p>
+            <button id="add-like" type="button">+</button>
+        </div>
+        <p id="post-number">
+            {{numPost}} Posts
+        </p>
+    </div>
+</div>
+<p id="all-posts">
+    All posts by {{UserData.FIRST_NAME}}
+</p>
+{{>post}}
+</div>

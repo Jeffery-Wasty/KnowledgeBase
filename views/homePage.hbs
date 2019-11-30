@@ -1,0 +1,13 @@
+<div class="container">
+    {{>header}}
+    <div class="row">
+        <div class="col-4">
+            {{>sidebar UserData=UserData}}
+        </div>
+        <div class="col-5 offset-2">
+            {{>post}}
+            {{> addDiscussionPartial topics=topics user=user}}
+            {{> discussionPartial discussions=discussions}}
+        </div>
+    </div>
+</div>
