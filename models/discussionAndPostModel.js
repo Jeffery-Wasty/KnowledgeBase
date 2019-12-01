@@ -38,32 +38,3 @@ exports.createDiscussion = async (userID, topicID, discussionBody, discussionSub
 exports.createPost = async (userID, discussionID, postBody) => {
     return(db.query('CALL CREATE_POST(' + userID + ',' + discussionID + ',\'' + postBody +'\')'));
 }
-
-
-exports.test = async function test(){
-    let tables = db.query('SHOW TABLES');
-    console.log(tables[0]);
-    db.query((await util.promisify(fs.readFile)('./Database/testStoredProcedures.sql')).toString());
-    console.log('Example call of stored procedure: ');
-    console.log(db.query('CALL GET_TOPICS(NULL);'));
-    console.log('Example call of stored procedure with double indexing to 0: ');
-    console.log((db.query('CALL GET_TOPICS(NULL);'))[0][0]);
-    console.log('Example call of stored procedure with column extraction: ');
-    let data = db.query('CALL GET_TOPICS(NULL);')
-    console.log('ID: ' + data[0][0][0].ID + ', Topic: ' + data[0][0][0].TOPIC);
-}
-
-
-exports.addDummyData = async function test(){
-    return(db.query((await util.promisify(fs.readFile)('./Database/dummyData.sql')).toString()));
-}
-/*
-module.exports = {
-    getTopics: getTopics,
-    getTopic : getTopic,
-    getAllDiscussions: getAllDiscussions,
-    getAllDiscussionsWithSearch: getAllDiscussionsWithSearch,
-    getPostsForDiscussion: getPostsForDiscussion,
-    createPost: createPost,
-    createDiscussion: createDiscussion
-}*/

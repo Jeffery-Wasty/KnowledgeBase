@@ -1,29 +1,5 @@
 let discPostModel = require('../models/discussionAndPostModel');
-/*
-exports.addDisucssion = async (req, res) => {
-    console.log("addPost")
-    res.redirect(301,'/')
-    //res.render('artists', {artist: true, pageTitle: 'Artists'});
-    //res.send(await artistModel.getArtists(req.query.name));
-    //res.render('leaderboard');
-    //discPostModel.execute()
-}
-*/
 
-exports.getRoot = (req, res) => {
-    //console.log((await discPostModel.getAllDiscussions())[0][0]);
-    //return(await discPostModel.getTopics())
-    discPostModel.getTopics().then(([data,metadata])=>{
-        let topics = data[0];
-        //[0] = table, [0][0] = table, row, [0][0][0] = id
-        discPostModel.getAllDiscussions().then(([data,metadata])=>{
-            let discussions = data[0];
-            //console.log(discussions);
-            res.render('main-layout', {dicussions: discussions, topics: topics})
-        })
-    });
-
-}
 
 exports.getTopics = async (req, res) => {
 
@@ -60,7 +36,6 @@ exports.getAllDiscussionsWithSearch = async (req, res) => {
     //res.send(await discPostModel.getAllDiscussionsWithSearch(req.body.topic, req.body.search));
 }
 exports.getPostsForDiscussion = async (req, res) => {
-    //TODO fix re-rendering of main layout do conditionals or something else
     await discPostModel.getPostsForDiscussion(req.body.discussionID).then(([data,metadata])=>{
         let posts = data[0];
         discPostModel.getDiscussion(req.body.discussionID).then(([data, metadata])=>{
@@ -74,7 +49,5 @@ exports.createDiscussion = async (req, res) => {
     res.redirect(301, '/homePage')
 }
 exports.createPost = async (req, res) => {
-    console.log(req.session.userId, req.body.discussionID, req.body.postBody);
     await discPostModel.createPost(req.session.userId, req.body.discussionID, req.body.postBody);
-    //res.render('/getPostsForDiscussion');
 }

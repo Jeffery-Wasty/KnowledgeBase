@@ -1,5 +1,4 @@
 const profileModel = require('../models/profileModel');
-const discussionModel = require('../models/discussionAndPostModel');
 
 //from '/'. First thing user needs to do is to login and/or signup to set req.session.userId
 exports.loginPage = (req, res) => {

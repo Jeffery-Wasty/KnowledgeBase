@@ -6,12 +6,12 @@ body {
 }
 
 .discussionPartialContainer {
-    width: 400px;
+    width: 500px;
 }
 
 .discussionPartial {
     background-color:white;
-    width: 400px;
+    width: 500px;
     height: 120px;
 }
 
@@ -35,8 +35,13 @@ body {
 }
 
 .discussionHeaderTitle {
+    width: 80%;
     font-size: 16px;
     float:left;
+    overflow: hidden;
+    white-space: nowrap;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
 }
 
 .discussionHeaderTopic {
@@ -61,7 +66,7 @@ body {
     max-height:3;
     max-lines: 3;
     line-height: 1; /*TODO this line + preceding 2, figure how to limit lines of discussion, should it be handled here?*/
-    text-overflow: ellipsis;
+    word-wrap: break-word;
 }
 
 .discussionFooterContainer {
