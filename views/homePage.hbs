@@ -7,7 +7,12 @@
         <div class="col-5 offset-2">
             {{>post}}
             {{> addDiscussionPartial topics=topics user=user}}
+            {{> searchByTopicPartial topics=topics}}
             {{> discussionPartial discussions=discussions}}
+
+            <form action="/discussionPagination" method="POST">
+                    <input class="btn" type="submit" value="Next"></input>
+            </form>
         </div>
     </div>
 </div>

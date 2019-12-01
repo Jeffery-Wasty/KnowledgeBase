@@ -4,14 +4,14 @@
             Search By Topic
         </div>
         <div class="dropDownContainer">
-            <select id="searchTopicDropDown">
-                {{#each topics}}
-                    <option>{{this.TOPIC}}</option>
-                {{/each}}
-            </select>
-            <button class="regularButton" onclick="getAllDiscussionsWithSearch">
-                Go
-            </button>
+            <form action="/searchByTopic" method="POST">
+                <select name="topic" id="searchTopicDropDown">
+                    {{#each topics}}
+                        <option value={{this.ID}}>{{this.TOPIC}}</option>
+                    {{/each}}
+                </select>
+                <input type="submit" class="regularButton" value="Go">
+            </form>
         </div>
     </div>
     <div class="latestDiscussionsTitle">
