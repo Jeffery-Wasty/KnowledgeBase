@@ -5,6 +5,7 @@ const msgController = require('../controllers/msgController');
 const profileController = require('../controllers/profileController');
 const disccussionController = require('../controllers/discussionAndPostController');
 const homeController = require('../controllers/homeController');
+const searchController = require('../controllers/searchController')
 
 //redirectLogin Middleware
 //if user is not logged in (!req.session.userId), all routes using this middleware will redirect user to login
@@ -36,6 +37,9 @@ router.post('/register', authController.register)
 /**Home Page routes **/
 router.get('/homePage', redirectLogin, homeController.homePage);
 router.post('/logout', logout);
+router.get('/search', searchController.searchWithString);
+router.post('/searchByTopic', searchController.searchWithTopic);
+router.post('/discussionPagination', redirectLogin, homeController.discussionPagination);
 
 /**Profile **/
 router.get('/profile/:id', redirectLogin, profileController.serveProfile)

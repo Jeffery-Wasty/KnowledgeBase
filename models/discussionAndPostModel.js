@@ -38,3 +38,7 @@ exports.createDiscussion = async (userID, topicID, discussionBody, discussionSub
 exports.createPost = async (userID, discussionID, postBody) => {
     return(db.query('CALL CREATE_POST(' + userID + ',' + discussionID + ',\'' + postBody +'\')'));
 }
+
+exports.getDiscussionByPage = (page) => {
+    return(db.query(`CALL GET_DISCUSSIONS(${page}, 3)`));
+}

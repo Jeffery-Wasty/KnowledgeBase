@@ -1,7 +1,12 @@
 <body>
-    <div class="discussionPartialViewContainer">
-    {{> discussionPartial discussions=discussions}}
-    {{> postPartial posts = posts}}
-    {{> addPostPartial discussion=discussions}}
+    <div class="container">
+        {{>header}}
+        <div class="row mt-4">
+            <div class="discussionPartialViewContainer">
+                {{> discussionPartial discussions=discussions}}
+                {{> postPartial posts = posts}}
+                {{> addPostPartial discussion=discussions}}
+            </div>
+        </div>
     </div>
 </body>
