@@ -1,11 +1,11 @@
-#userInfo {
+#user-info {
   padding-left: 5%;
   padding-right: 5%;
   text-align: center;
   color: black;
 }
 
-#userInfo h2 {
+#user-info h2 {
   font-size: 25px;
 }
 
@@ -14,12 +14,12 @@
   font-weight: 200;
 }
 
-#imgContainer {
+#img-container {
   text-align: center;
   margin: 10%;
 }
 
-#userImg {
+#user-img {
   width: 60%;
 }
 
@@ -30,15 +30,15 @@
   font-size: 16px;
 }
 
-#postsLabel {
+#posts {
   color: black;
 }
 
-#messagesLabel {
+#messages {
   color: black;
 }
 
-#likesLabel {
+#likes {
   color: black;
 }
 
@@ -48,10 +48,10 @@
   border-collapse: separate;
 }
 
-#editContainer {
+#edit-container {
   text-align: center;
 }
 
-#editContainer a {
+#edit-container a {
   color: black;
 }
