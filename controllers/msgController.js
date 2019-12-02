@@ -8,7 +8,7 @@ exports.messagePage = (req, res) => {
         profileModel.getUserProfile(req.query.user_id).then(data => {
             if (data[0] && data[0][0] && data[0][0].PROFILE_IMAGE_URL) {
                 res.render('messagePage', {
-                    layout: 'msg',
+                    header: true,
                     profile_img: data[0][0].PROFILE_IMAGE_URL,
                     receiver_id: req.query.user_id,
                     sender_id: req.session.userId
@@ -72,11 +72,10 @@ exports.conversationPage = (req, res) => {
                 data[i].READ = read
             }
             res.render('conversationPage', {
-                layout: 'msg',
+                msg: true,
+                header: true,
                 sender_id: req.session.userId,
                 conversations: data,
-                scripts: [{ script: '/js/msg.js' }],
-                styles: [{ style: '/css/msg.css' }],
             });
         }
         else {
