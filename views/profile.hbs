@@ -37,8 +37,9 @@
         </p>
     </div>
 </div>
-<p id="all-posts">
-    All posts by {{UserData.FIRST_NAME}}
-</p>
-{{>discussionPartial}}
+<div class="bottom-half">
+    <p id="all-posts">
+        All posts by {{UserData.FIRST_NAME}}
+    </p>
+    <div id="discussion-list">{{>discussionPartial}}</div>
 </div>

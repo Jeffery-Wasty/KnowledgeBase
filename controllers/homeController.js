@@ -7,34 +7,33 @@ exports.homePage = async (req, res) => {
   req.session.page = 0;
   let id = req.session.userId;
   let userData, discussionsData, topicsData;
+  let postCount, likeCount;
+
   try {
     let user = await profileModel.findUser(id);
     let discussions = await discPostModel.getDiscussionByPage(req.session.page);
     let topics = await discPostModel.getTopics();
+    let user_discussions = await discussionModal.getUsersDiscussions(id);
+    let likes = await profileModel.fetchLikes(id);
 
-    discussionModal.getUsersDiscussions(id).then(p_data => {
-      let postCount = p_data[0].length;
+    postCount = user_discussions[0].length;
+    likeCount = likes[0].length;
+    userData = user[0][0];
+    discussionsData = discussions[0][0];
+    topicsData = topics[0][0];
 
-      profileModel.fetchLikes(id).then(l_data => {
-        let likeCount = l_data[0].length;
-
-        userData = user[0][0];
-        discussionsData = discussions[0][0];
-        topicsData = topics[0][0];
-        res.render('homePage', {
-          pageTitle: 'Home Page',
-          userCSS: true,
-          discCSS: true,
-          header: true,
-          sideCSS: true,
-          noPosts: postCount,
-          noLikes: likeCount,
-          noMsg: 0, //Replace with actual count fetch like above.
-          UserData: userData,
-          discussions: discussionsData,
-          topics: topicsData
-        });
-      });
+    res.render('homePage', {
+      pageTitle: 'Home Page',
+      userCSS: true,
+      discCSS: true,
+      header: true,
+      sideCSS: true,
+      noPosts: postCount,
+      noLikes: likeCount,
+      noMsg: 0, //Replace with actual count fetch like above.
+      UserData: userData,
+      discussions: discussionsData,
+      topics: topicsData
     });
   } catch (error) {
     console.log(error);

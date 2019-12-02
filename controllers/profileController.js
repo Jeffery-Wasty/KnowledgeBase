@@ -1,58 +1,43 @@
 const profileModel = require('../models/profileModel');
 const discussionModal = require('../models/discussionAndPostModel');
+let discPostModel = require('../models/discussionAndPostModel');
 
-exports.serveProfile = (req, res) => {
-  let userData;
-  let discussionData;
-  let postCount;
-  let likeData;
-
+exports.serveProfile = async (req, res) => {
   let id = req.params.id;
   let sessionId = req.session.userId;
-  let user = profileModel.findUser(id);
-  let posts = discussionModal.getUsersDiscussions(id);
-  let likes = profileModel.fetchLikes(id);
+  let postCount, likeCount;
+  let userData, likeData, discussionsData;
+  let alreadyLiked, canLike;
 
-  user.then(data => {
-    userData = {
-      ID: data[0][0].ID,
-      FIRST_NAME: data[0][0].FIRST_NAME,
-      LAST_NAME: data[0][0].LAST_NAME,
-      COUNTRY: data[0][0].COUNTRY,
-      ABOUT: data[0][0].ABOUT,
-      PROFILE_IMAGE_URL: data[0][0].PROFILE_IMAGE_URL
-    };
-    posts.then(p_data => {
-      discussionData = {};
-      postCount = p_data[0].length;
+  let user = await profileModel.findUser(id);
+  let posts = await discussionModal.getUsersDiscussions(id);
+  let likes = await profileModel.fetchLikes(id);
+  let fetchLiked = await profileModel.fetchAlreadLiked(id, sessionId);
+  let discussions = await discPostModel.getUsersDiscussions(id);
 
-      for (let data in p_data[0]) {
-        discussionData[data] = p_data[0][data];
-      }
-      likes.then(l_data => {
-        let likeCount = l_data[0].length;
-        likeData = {
-          LIKE_COUNT: likeCount
-        };
-        profileModel.fetchAlreadLiked(id, sessionId).then(a_l_data => {
-          let alreadyLiked = a_l_data[0].length > 0;
-          let canLike = !(id == sessionId || alreadyLiked);
+  userData = user[0][0];
+  postCount = posts[0].length;
+  likeCount = likes[0].length;
+  discussionsData = discussions[0][0];
 
-          res.render('profile', {
-            pageTitle: 'User Profile',
-            userCSS: true,
-            discCSS: true,
-            header: true,
-            postCount: postCount,
-            discussions: discussionData,
-            UserData: userData,
-            likeSingular: likeCount == 1,
-            canLike: canLike,
-            likes: likeData
-          });
-        });
-      });
-    });
+  likeData = {
+    LIKE_COUNT: likeCount
+  };
+
+  alreadyLiked = fetchLiked.length > 0;
+  canLike = !(id == sessionId || alreadyLiked);
+
+  res.render('profile', {
+    pageTitle: 'User Profile',
+    userCSS: true,
+    discCSS: true,
+    header: true,
+    postCount: postCount,
+    discussions: discussionsData,
+    UserData: userData,
+    likeSingular: likeCount == 1,
+    canLike: canLike,
+    likes: likeData
   });
 };
 
