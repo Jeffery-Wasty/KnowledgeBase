@@ -1,4 +1,4 @@
-#formInput {
+#form-input {
   width: 50%;
   margin-top: 30px;
 }
@@ -7,11 +7,11 @@
   width: 50%;
 }
 
-#btnDiv {
+#btn-container {
   margin-top: 50px;
 }
 
-#rightDiv {
+#main-container {
   padding: 20px;
   padding-left: 40px;
 }
