@@ -70,7 +70,7 @@ exports.increaseAndServeProfile = (req, res) => {
   let sessionId = req.session.userId;
   let user = profileModel.findUser(id);
   let posts = discussionModal.getUsersDiscussions(id);
-  let saveLikes = profileModel.saveLikes(id, sessionId);
+  profileModel.saveLikes(id, sessionId).then();
 
   user.then(data => {
     userData = {
