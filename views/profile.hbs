@@ -27,6 +27,8 @@
             <form method="POST" action="/profile/{{UserData.ID}}">
                 {{#if canLike}}
                 <button id="add-like" type="submit">+</button>
+                {{else}}
+                <button disabled="true" id="add-like-disabled" title="Profile already liked" type="submit">+</button>
                 {{/if}}
             </form>
         </div>

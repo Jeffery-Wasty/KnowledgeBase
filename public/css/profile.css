@@ -78,6 +78,15 @@
   color: white;
 }
 
+#add-like-disabled {
+  width: 20%;
+  border-radius: 50%;
+  font-size: 16px;
+  border: none;
+  background-color: #7c7d7e;
+  color: white;
+}
+
 #post-number {
   margin-left: 20%;
   float: left;
