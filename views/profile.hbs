@@ -15,9 +15,10 @@
         </p>
     </div>
     <div class="extra">
-        <a href="/user/message/{{UserData.ID}}">
-            <button id="message" type="button">Message</button>
-        </a>
+        <form method="GET" action="/messagePage">
+            <input hidden="true" type="text" name="user_id" value="{{UserData.ID}}">
+            <button id="message" type="submit">Message</button>
+        </form>
         <div class="like">
             <p id="likes">
                 {{likes.LIKE_COUNT}}
