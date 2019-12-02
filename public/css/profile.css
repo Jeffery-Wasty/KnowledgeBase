@@ -4,6 +4,7 @@
   margin-right: 10%;
   width: 98%;
   float: left;
+  color: black;
 }
 
 #user-image {
@@ -49,6 +50,7 @@
   height: 40px;
   margin-bottom: 8%;
   border-radius: 3px;
+  font-size: 16px;
   border: none;
   background-color: #0073b1;
   color: white;
@@ -70,6 +72,7 @@
 #add-like {
   width: 20%;
   border-radius: 50%;
+  font-size: 16px;
   border: none;
   background-color: #0a94de;
   color: white;

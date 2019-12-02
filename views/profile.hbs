@@ -20,17 +20,22 @@
         </a>
         <div class="like">
             <p id="likes">
-                5 Likes
+                {{likes.LIKE_COUNT}}
+                {{#if likeSingular}} Like {{else}} Likes {{/if}}
             </p>
-            <button id="add-like" type="button">+</button>
+            <form method="POST" action="/profile/{{UserData.ID}}">
+                {{#if canLike}}
+                <button id="add-like" type="submit">+</button>
+                {{/if}}
+            </form>
         </div>
         <p id="post-number">
-            {{numPost}} Posts
+            {{postCount}} Posts
         </p>
     </div>
 </div>
 <p id="all-posts">
     All posts by {{UserData.FIRST_NAME}}
 </p>
-{{>post}}
+{{>discussionPartial}}
 </div>

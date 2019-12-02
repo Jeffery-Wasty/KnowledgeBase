@@ -5,40 +5,64 @@ const util = require('util');
 //with id for getting that discussions topic or by searching
 
 exports.getTopics = async () => {
-    return(db.query('CALL GET_TOPICS(NULL);'));
-}
+  return db.query('CALL GET_TOPICS(NULL);');
+};
 exports.getTopic = async () => {
-    //CALL GET_TOPICS(ID);
-    return(db.query('CALL GET_TOPICS(id);'));
-}
+  //CALL GET_TOPICS(ID);
+  return db.query('CALL GET_TOPICS(id);');
+};
 
-exports.getDiscussion = async (discussionID) =>{
-    return(db.query('CALL GET_DISCUSSION('+ discussionID +')'));
-}
+exports.getDiscussion = async discussionID => {
+  return db.query('CALL GET_DISCUSSION(' + discussionID + ')');
+};
 
 exports.getAllDiscussions = async () => {
-    //CALL GET_ALL_DISCUSSIONS()
-    return(db.query('CALL GET_ALL_DISCUSSIONS();'))
-}
+  //CALL GET_ALL_DISCUSSIONS()
+  return db.query('CALL GET_ALL_DISCUSSIONS();');
+};
+
+exports.getUsersDiscussions = async id => {
+  //CALL GET_USER_DISCUSSIONS()
+  //   return db.query('GET_USER_DISCUSSIONS(' + id + ');');
+  let sql = 'SELECT * FROM DISCUSSIONS WHERE USER_ID = ' + id;
+  return db.execute(sql);
+};
 
 exports.getAllDiscussionsWithSearch = async () => {
-    //CALL GET_DISCUSSIONS_WITH_SEARCH(NULL, 'hello');, NULL = TOPIC, 'helo' = USER INPUT
-    //First param = NULL = search by string, second param null = search by topic
-    return(db.query('CALL GET_TOPICS(NULL);'))
-}
+  //CALL GET_DISCUSSIONS_WITH_SEARCH(NULL, 'hello');, NULL = TOPIC, 'helo' = USER INPUT
+  //First param = NULL = search by string, second param null = search by topic
+  return db.query('CALL GET_TOPICS(NULL);');
+};
 
-exports.getPostsForDiscussion = async (discussionID) => {
-    return(db.query('CALL GET_POSTS_FOR_DISCUSSION('+ discussionID +')'));
-}
+exports.getPostsForDiscussion = async discussionID => {
+  return db.query('CALL GET_POSTS_FOR_DISCUSSION(' + discussionID + ')');
+};
 
-exports.createDiscussion = async (userID, topicID, discussionBody, discussionSubject) => {
-    return(db.query('CALL CREATE_DISCUSSION(' + userID + ',' + topicID + ',\'' + discussionBody + '\',\''+ discussionSubject + '\')'));
-}
+exports.createDiscussion = async (
+  userID,
+  topicID,
+  discussionBody,
+  discussionSubject
+) => {
+  return db.query(
+    'CALL CREATE_DISCUSSION(' +
+      userID +
+      ',' +
+      topicID +
+      ",'" +
+      discussionBody +
+      "','" +
+      discussionSubject +
+      "')"
+  );
+};
 
 exports.createPost = async (userID, discussionID, postBody) => {
-    return(db.query('CALL CREATE_POST(' + userID + ',' + discussionID + ',\'' + postBody +'\')'));
-}
+  return db.query(
+    'CALL CREATE_POST(' + userID + ',' + discussionID + ",'" + postBody + "')"
+  );
+};
 
-exports.getDiscussionByPage = (page) => {
-    return(db.query(`CALL GET_DISCUSSIONS(${page}, 3)`));
-}
+exports.getDiscussionByPage = page => {
+  return db.query(`CALL GET_DISCUSSIONS(${page}, 3)`);
+};
