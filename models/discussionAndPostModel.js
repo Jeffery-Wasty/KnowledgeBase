@@ -23,9 +23,7 @@ exports.getAllDiscussions = async () => {
 
 exports.getUsersDiscussions = async id => {
   //CALL GET_USER_DISCUSSIONS()
-  //   return db.query('GET_USER_DISCUSSIONS(' + id + ');');
-  let sql = 'SELECT * FROM DISCUSSIONS WHERE USER_ID = ' + id;
-  return db.execute(sql);
+  return db.query(`CALL GET_USER_DISCUSSIONS(${id});`);
 };
 
 exports.getAllDiscussionsWithSearch = async () => {

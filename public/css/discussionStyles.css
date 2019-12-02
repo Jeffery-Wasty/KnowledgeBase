@@ -1,99 +1,96 @@
 /*Universal font application*/
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 11px;
-    color: gray;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: gray;
 }
 
 .discussionPartialContainer {
-    width: 500px;
+  width: 500px;
 }
 
 .discussionPartial {
-    background-color:white;
-    width: 500px;
-    height: 120px;
+  background-color: white;
+  width: 500px;
+  height: 120px;
 }
 
 .userPortraitContainer {
-    float:left;
-    background-color:white;
-    width: 21%; /*1-width here = width .headerContainer*/
-    height: 100%;
+  float: left;
+  background-color: white;
+  width: 21%; /*1-width here = width .headerContainer*/
+  height: 100%;
 }
 
 .userPortrait {
-    border-radius:50%;
-    border-width:2px;
-    border-style:double;
-    border-color:gray;
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: double;
+  border-color: gray;
 }
 
 .discussionHeaderContainer {
-    float:left;
-    width: 79%; /*1-width here = width .userPortraitContainer*/
+  float: left;
+  width: 79%; /*1-width here = width .userPortraitContainer*/
 }
 
 .discussionHeaderTitle {
-    width: 80%;
-    font-size: 16px;
-    float:left;
-    overflow: hidden;
-    white-space: nowrap;
-    word-wrap: break-word;
-    text-overflow: ellipsis;
+  width: 80%;
+  font-size: 16px;
+  float: left;
+  overflow: hidden;
+  white-space: nowrap;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
 }
 
 .discussionHeaderTopic {
-    border-style: solid;
-    padding: 1px;
-    width: 20%;
-    border-width:1px; /*Why is border not appearing?*/
-    border-color:dodgerblue;
-    color:dodgerblue;
-    float:right;
-    text-align:center;
+  border-style: solid;
+  padding: 1px;
+  width: 20%;
+  border-width: 1px; /*Why is border not appearing?*/
+  border-color: dodgerblue;
+  color: dodgerblue;
+  float: right;
+  text-align: center;
 }
 
 .discussionContainer {
-    float: left;
-    width: 79%; /*Should be same as .discussionHeaderContainer width*/
+  float: left;
+  width: 79%; /*Should be same as .discussionHeaderContainer width*/
 }
 
 .discussionBody {
-    width: 100%;
-    padding: 2%;
-    max-height:3;
-    max-lines: 3;
-    line-height: 1; /*TODO this line + preceding 2, figure how to limit lines of discussion, should it be handled here?*/
-    word-wrap: break-word;
-}
-
-.discussionFooterContainer {
+  width: 100%;
+  padding: 2%;
+  max-height: 3;
+  max-lines: 3;
+  line-height: 1; /*TODO this line + preceding 2, figure how to limit lines of discussion, should it be handled here?*/
+  word-wrap: break-word;
 }
 
 .discussionDate {
-    font-size:13px;
-    float:left;
+  font-size: 13px;
+  float: left;
 }
 
 .discussionReplies {
-    font-size:13px;
-    float:right;
+  font-size: 13px;
+  float: right;
 }
 
 .replyButton {
-    float: right;
-    font-size:13px;
-    background-color:white;
-    color:gray;
-    text-align: center;
-    text-decoration: none;
-    border: solid 1px transparent;
+  float: right;
+  font-size: 13px;
+  background-color: white;
+  color: gray;
+  text-align: center;
+  text-decoration: none;
+  border: solid 1px transparent;
 }
 
 /*General Elements*/
 
 .spacer {
-    height: 5px;
+  height: 5px;
 }
