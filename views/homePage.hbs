@@ -2,7 +2,7 @@
     {{>header}}
     <div class="row">
         <div class="col-4">
-            {{>sidebar UserData=UserData}}
+            {{>sidebar}}
         </div>
         <div class="col-5 offset-2">
             {{>post}}
@@ -11,7 +11,7 @@
             {{> discussionPartial discussions=discussions}}
 
             <form action="/discussionPagination" method="POST">
-                    <input class="btn" type="submit" value="Next"></input>
+                <input class="btn" type="submit" value="Next"></input>
             </form>
         </div>
     </div>

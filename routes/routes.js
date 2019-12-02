@@ -47,6 +47,7 @@ router.post(
 
 /**Profile **/
 router.get('/profile/:id', redirectLogin, profileController.serveProfile);
+router.get('/profile/:id/edit', redirectLogin, profileController.editProfile);
 router.post(
   '/profile/:id',
   redirectLogin,
@@ -67,8 +68,5 @@ router.post('/conversation/start', msgController.startConversation);
 router.get('/conversationPage', redirectLogin, msgController.conversationPage);
 router.get('/messages/get', redirectLogin, msgController.getMessages);
 router.post('/message/send', msgController.sendMessage);
-
-router.get('/homePage/:id', profileController.serveProfile);
-router.get('/profile/posts/:id', profileController.profileAllPosts);
 
 module.exports = router;

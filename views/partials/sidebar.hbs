@@ -14,7 +14,7 @@
                     <a id="postsLabel" href="#" class="d-inline link">Posts</a>
                 </td>
                 <td>
-                    <p id="numPosts" class="d-inline">{{UserData.numPosts}}</p>
+                    <p id="numPosts" class="d-inline">{{noPosts}}</p>
                 </td>
             </tr>
             <tr>
@@ -22,7 +22,7 @@
                     <a id="messagesLabel" href="/profile/message" class="d-inline link">Messages</a>
                 </td>
                 <td>
-                    <p id="numMessages" class="d-inline">3</p>
+                    <p id="numMessages" class="d-inline">{{noMsg}}</p>
                 </td>
             </tr>
             <tr>
@@ -30,13 +30,13 @@
                     <a id="likesLabel" href="#" class="d-inline link">Likes</a>
                 </td>
                 <td>
-                    <p id="numLikes" class="d-inline">3</p>
+                    <p id="numLikes" class="d-inline">{{noLikes}}</p>
                 </td>
             </tr>
         </table>
         <div id="editContainer">
             <br />
-            <a href="#" class="link">Edit Profile</a>
+            <a href="/profile/{{UserData.ID}}/edit" class="link">Edit Profile</a>
         </div>
     </div>
 </div>

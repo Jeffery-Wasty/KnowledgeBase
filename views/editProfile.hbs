@@ -1,0 +1,44 @@
+{{>header}}
+<div class="container-fluid">
+    <div class="row">
+        {{>sidebar}}
+        <div class="col-sm-8" id="rightDiv">
+            <h1>Edit Profile Information</h1>
+            <div id="formInput">
+                <form method="GET" action="/homePage">
+                    <div class="form-group">
+                        <label for="input">Edit First Name:</label>
+                        <input type="text" name="first_name" id="input" class="form-control"
+                            placeholder={{UserData.FIRST_NAME}}>
+                    </div>
+                    <div class="form-group">
+                        <label for="input">Edit Last Name:</label>
+                        <input type="text" name="last_name" id="input" class="form-control"
+                            placeholder={{UserData.LAST_NAME}}>
+                    </div>
+                    <div class="form-group">
+                        <label for="input">Edit Image URL:</label>
+                        <input type="text" name="image_url" id="input" class="form-control"
+                            placeholder={{UserData.PROFILE_IMAGE_URL}}>
+                    </div>
+                    <div class="form-group">
+                        <label for="input">Edit Country:</label>
+                        <input type="text" name="country" id="input" class="form-control"
+                            placeholder={{UserData.COUNTRY}}>
+                    </div>
+                    <div class="form-group">
+                        <label for="input">Edit Date of Birth:</label>
+                        <input type="date" name="date_of_birth" id="input" class="form-control"
+                            placeholder={{UserData.DATE_OF_BIRTH}}>
+                    </div>
+                    <div class="form-group">
+                        <label for="input">Edit About:</label>
+                        <input type="text" name="about" id="input" class="form-control" placeholder={{UserData.ABOUT}}>
+                    </div>
+                    <div class="form-group" id="btnDiv">
+                        <button type="submit" id="input" class="btn btn-primary btn-block">Update Info</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

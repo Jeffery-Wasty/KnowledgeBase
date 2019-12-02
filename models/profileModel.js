@@ -42,7 +42,7 @@ exports.login = data => {
 };
 
 exports.getUserProfile = user_id => {
-  const sql = `SELECT * FROM knowledgebase.users where id = '${user_id}'
+  const sql = `SELECT * FROM USERS where id = '${user_id}'
         `;
   return profileDb.execute(sql);
 };
