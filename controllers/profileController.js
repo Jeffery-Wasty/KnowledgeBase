@@ -12,7 +12,7 @@ exports.serveProfile = async (req, res) => {
   let user = await profileModel.findUser(id);
   let posts = await discussionModal.getUsersDiscussions(id);
   let likes = await profileModel.fetchLikes(id);
-  let fetchLiked = await profileModel.fetchAlreadLiked(id, sessionId);
+  let fetchLiked = await profileModel.fetchAlreadyLiked(id, sessionId);
   let discussions = await discPostModel.getUsersDiscussions(id);
 
   userData = user[0][0];
@@ -24,7 +24,7 @@ exports.serveProfile = async (req, res) => {
     LIKE_COUNT: likeCount
   };
 
-  alreadyLiked = fetchLiked.length > 0;
+  alreadyLiked = fetchLiked[0].length > 0;
   canLike = !(id == sessionId || alreadyLiked);
 
   res.render('profile', {
@@ -41,59 +41,43 @@ exports.serveProfile = async (req, res) => {
   });
 };
 
-exports.increaseAndServeProfile = (req, res) => {
-  let userData;
-  let discussionData;
-  let postCount;
-  let likeData;
-
+exports.increaseAndServeProfile = async (req, res) => {
   let id = req.params.id;
   let sessionId = req.session.userId;
-  let user = profileModel.findUser(id);
-  let posts = discussionModal.getUsersDiscussions(id);
-  profileModel.saveLikes(id, sessionId).then();
+  let postCount, likeCount;
+  let userData, likeData, discussionsData;
+  let alreadyLiked, canLike;
 
-  user.then(data => {
-    userData = {
-      ID: data[0][0].ID,
-      FIRST_NAME: data[0][0].FIRST_NAME,
-      LAST_NAME: data[0][0].LAST_NAME,
-      COUNTRY: data[0][0].COUNTRY,
-      ABOUT: data[0][0].ABOUT,
-      PROFILE_IMAGE_URL: data[0][0].PROFILE_IMAGE_URL
-    };
-    posts.then(p_data => {
-      discussionData = {};
-      postCount = p_data[0].length;
+  let user = await profileModel.findUser(id);
+  let posts = await discussionModal.getUsersDiscussions(id);
+  let discussions = await discPostModel.getUsersDiscussions(id);
+  await profileModel.saveLikes(id, sessionId);
+  let likes = await profileModel.fetchLikes(id);
+  let fetchLiked = await profileModel.fetchAlreadyLiked(id, sessionId);
 
-      for (let data in p_data[0]) {
-        discussionData[data] = p_data[0][data];
-      }
-      profileModel.fetchLikes(id).then(l_data => {
-        let likeCount = l_data[0].length + 1;
-        likeData = {
-          LIKE_COUNT: likeCount
-        };
+  userData = user[0][0];
+  postCount = posts[0].length;
+  likeCount = likes[0].length;
+  discussionsData = discussions[0][0];
 
-        profileModel.fetchAlreadLiked(id, sessionId).then(a_l_data => {
-          let alreadyLiked = a_l_data[0].length > 0;
-          let likeDisabled = id == sessionId || alreadyLiked;
+  likeData = {
+    LIKE_COUNT: likeCount
+  };
 
-          res.render('profile', {
-            pageTitle: 'User Profile',
-            userCSS: true,
-            discCSS: true,
-            header: true,
-            postCount: postCount,
-            discussions: discussionData,
-            UserData: userData,
-            likeSingular: likeCount == 1,
-            likeDisabled: likeDisabled,
-            likes: likeData
-          });
-        });
-      });
-    });
+  alreadyLiked = fetchLiked[0].length > 0;
+  canLike = !(id == sessionId || alreadyLiked);
+
+  res.render('profile', {
+    pageTitle: 'User Profile',
+    userCSS: true,
+    discCSS: true,
+    header: true,
+    postCount: postCount,
+    discussions: discussionsData,
+    UserData: userData,
+    likeSingular: likeCount == 1,
+    canLike: canLike,
+    likes: likeData
   });
 };
 
@@ -130,7 +114,7 @@ exports.editProfile = (req, res) => {
         likeData = {
           LIKE_COUNT: likeCount
         };
-        profileModel.fetchAlreadLiked(id, sessionId).then(a_l_data => {
+        profileModel.fetchAlreadyLiked(id, sessionId).then(a_l_data => {
           let alreadyLiked = a_l_data[0].length > 0;
           let canLike = !(id == sessionId || alreadyLiked);
 

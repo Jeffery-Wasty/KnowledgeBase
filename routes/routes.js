@@ -36,6 +36,7 @@ router.post('/register', authController.register);
 
 /**Home Page routes **/
 router.get('/homePage', redirectLogin, homeController.homePage);
+router.get('/homePage/:id', redirectLogin, homeController.homePageForUser);
 router.post('/logout', logout);
 router.get('/search', searchController.searchWithString);
 router.post('/searchByTopic', searchController.searchWithTopic);
@@ -48,6 +49,7 @@ router.post(
 /**Profile **/
 router.get('/profile/:id', redirectLogin, profileController.serveProfile);
 router.get('/profile/:id/edit', redirectLogin, profileController.editProfile);
+router.post('/edit', redirectLogin, homeController.sendEdit);
 router.post(
   '/profile/:id',
   redirectLogin,
@@ -55,12 +57,10 @@ router.post(
 );
 
 /**Post and Discussion Routes **/
-router.post(
-  '/getPostsForDiscussion',
-  disccussionController.getPostsForDiscussion
-);
+router.get('/getPostsForDiscussion', disccussionController.getPostsForDiscussion);
 router.post('/createDiscussion', disccussionController.createDiscussion);
 router.post('/createPost', disccussionController.createPost);
+router.get('/discussionAndPostView', disccussionController.reloadDiscussions);
 
 /** Live messaging  **/
 router.get('/messagePage', redirectLogin, msgController.messagePage);

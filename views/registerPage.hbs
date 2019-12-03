@@ -1,17 +1,20 @@
 <div class="container">
     <div class="row mt-4">
         <div class="col-4">
-            <h1 class="col mt-4"><a href="/">knowledge<span class="text-primary">Base</span></a></h1>
-            <h2>Give us more personal data</h1>
+            <h1 class="col mt-4">knowledge<span class="text-primary">Base</span></h1>
+            <h2>Let us know know a little more about you</h1>
         </div>
         <div class="col-8">
             <form class="register-form" method="POST" action="/register">
                 <input class="form-control col-8 mb-3" type="hidden" name="id" value={{id}}>
-                <input class="form-control col-8 mb-3" type="text" name="imgURL" placeholder="image url" value="https://randomuser.me/api/portraits/med/men/65.jpg">
-                <textarea class="form-control col-8 mb-3" type="text" name="about" placeholder="tell us your SIN" rows="5"></textarea>
+                <input class="form-control col-8 mb-3" type="text" name="imgURL" placeholder="image url"
+                    value="https://randomuser.me/api/portraits/med/men/65.jpg">
+                <textarea class="form-control col-8 mb-3" type="text" name="about" placeholder="tell us your SIN"
+                    rows="5"></textarea>
                 <input class="form-control col-8 mb-3" type="text" name="country" placeholder="country">
-                <input class="form-control col-8 mb-3" type="date" name="birthdate" placeholder="date of birth (mm/dd/yyyy)">
-                <button class="btn btn-primary col-8" type="submit">Complete Registeration</button>
+                <input class="form-control col-8 mb-3" type="date" name="birthdate"
+                    placeholder="date of birth (mm/dd/yyyy)">
+                <button class="btn btn-primary col-8" type="submit">Complete Registration</button>
             </form>
         </div>
     </div>
