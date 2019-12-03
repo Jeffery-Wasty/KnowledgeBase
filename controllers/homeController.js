@@ -72,3 +72,8 @@ exports.discussionPagination = async (req, res) => {
     res.redirect('/notLoggedIn');
   }
 };
+
+exports.sendEdit = async (req, res) => {
+  profileModel.editUser(req.body, req.session.userId);
+  res.redirect('/homePage');
+};

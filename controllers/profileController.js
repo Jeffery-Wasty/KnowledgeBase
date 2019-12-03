@@ -99,6 +99,7 @@ exports.editProfile = (req, res) => {
       FIRST_NAME: data[0][0].FIRST_NAME,
       LAST_NAME: data[0][0].LAST_NAME,
       COUNTRY: data[0][0].COUNTRY,
+      DATE_OF_BIRTH: data[0][0].DATE_OF_BIRTH,
       ABOUT: data[0][0].ABOUT,
       PROFILE_IMAGE_URL: data[0][0].PROFILE_IMAGE_URL
     };
@@ -114,7 +115,7 @@ exports.editProfile = (req, res) => {
         likeData = {
           LIKE_COUNT: likeCount
         };
-        profileModel.fetchAlreadLiked(id, sessionId).then(a_l_data => {
+        profileModel.fetchAlreadyLiked(id, sessionId).then(a_l_data => {
           let alreadyLiked = a_l_data[0].length > 0;
           let canLike = !(id == sessionId || alreadyLiked);
 

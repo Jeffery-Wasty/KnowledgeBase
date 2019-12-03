@@ -5,35 +5,35 @@
         <div class="col-sm-8" id="main-container">
             <h1>Edit Profile Information</h1>
             <div id="form-input">
-                <form method="GET" action="/homePage">
+                <form method="POST" action="/edit">
                     <div class="form-group">
                         <label for="input">Edit First Name:</label>
-                        <input type="text" name="first_name" id="input" class="form-control"
+                        <input type="text" name="FIRST_NAME" id="input" class="form-control"
                             placeholder={{UserData.FIRST_NAME}}>
                     </div>
                     <div class="form-group">
                         <label for="input">Edit Last Name:</label>
-                        <input type="text" name="last_name" id="input" class="form-control"
+                        <input type="text" name="LAST_NAME" id="input" class="form-control"
                             placeholder={{UserData.LAST_NAME}}>
                     </div>
                     <div class="form-group">
                         <label for="input">Edit Image URL:</label>
-                        <input type="text" name="image_url" id="input" class="form-control"
+                        <input type="text" name="PROFILE_IMAGE_URL" id="input" class="form-control"
                             placeholder={{UserData.PROFILE_IMAGE_URL}}>
                     </div>
                     <div class="form-group">
                         <label for="input">Edit Country:</label>
-                        <input type="text" name="country" id="input" class="form-control"
+                        <input type="text" name="COUNTRY" id="input" class="form-control"
                             placeholder={{UserData.COUNTRY}}>
                     </div>
                     <div class="form-group">
                         <label for="input">Edit Date of Birth:</label>
-                        <input type="date" name="date_of_birth" id="input" class="form-control"
-                            placeholder={{UserData.DATE_OF_BIRTH}}>
+                        <input onfocus="(this.type='date')" type="text" name="DATE_OF_BIRTH" id="input"
+                            class="form-control" placeholder={{UserData.DATE_OF_BIRTH}}>
                     </div>
                     <div class="form-group">
                         <label for="input">Edit About:</label>
-                        <input type="text" name="about" id="input" class="form-control" placeholder={{UserData.ABOUT}}>
+                        <input type="text" name="ABOUT" id="input" class="form-control" placeholder={{UserData.ABOUT}}>
                     </div>
                     <div class="form-group" id="btn-container">
                         <button type="submit" id="input" class="btn btn-primary btn-block">Update Info</button>
