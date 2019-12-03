@@ -46,6 +46,8 @@ body {
   white-space: nowrap;
   word-wrap: break-word;
   text-overflow: ellipsis;
+
+
 }
 
 .discussionHeaderTopic {
@@ -65,21 +67,16 @@ body {
 }
 
 .discussionBody {
-    margin-top:5px;
-    overflow: hidden; 
+    width: 100%;
+    height: 100px;
+    padding: 2%;
+    overflow: auto; 
     text-overflow: ellipsis; 
     display: -webkit-box; 
     -webkit-box-orient: vertical; 
     -webkit-line-clamp: 5; 
     line-height: 1.12;
     max-height: 15;
-    /*width: 100%;
-    height: 100px;
-    padding: 2%;
-    line-height: 1; 
-    word-wrap: break-word;
-    text-overflow: ellipsis;
-    overflow: hidden;*/
 }
 
 .discussionFooterContainer {
@@ -87,18 +84,18 @@ body {
 }
 
 .discussionDate {
-  font-size: 12px;
+  font-size: 13px;
   float: left;
 }
 
 .discussionReplies {
-  font-size: 12px;
+  font-size: 13px;
   float: right;
 }
 
 .replyButton {
   float: right;
-  font-size: 12px;
+  font-size: 13px;
   background-color: white;
   color: gray;
   text-align: center;
