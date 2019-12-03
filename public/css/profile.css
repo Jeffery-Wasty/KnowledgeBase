@@ -97,6 +97,7 @@
   margin: 2% auto;
   font-size: 28px;
   font-weight: bold;
+  color: black;
 }
 
 .bottom-half {
@@ -107,4 +108,9 @@
 
 #discussion-list {
   margin: 2% 20%;
+}
+
+.home-all-posts {
+  margin: 2%;
+  width: 50%;
 }

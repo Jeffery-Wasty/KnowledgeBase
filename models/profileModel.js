@@ -31,6 +31,26 @@ exports.registerUser = (data, id) => {
   return profileDb.execute(sql);
 };
 
+exports.editUser = (data, id) => {
+  Object.keys(data).forEach(
+    k => !data[k] && data[k] !== undefined && delete data[k]
+  );
+
+  let str = '';
+
+  for (let key in Object.keys(data)) {
+    let val = Object.keys(data)[key];
+    str += val;
+    str += ' = ';
+    str += "'" + data[val] + "'";
+  }
+
+  const sql = `UPDATE USERS SET 
+  ${str}
+  WHERE ID = ${id}`;
+  return profileDb.execute(sql);
+};
+
 exports.login = data => {
   const sql = `
             CALL GET_USER_PER_EMAIL_PASSWORD(
@@ -60,7 +80,7 @@ exports.fetchLikes = id => {
   return profileDb.execute(sql);
 };
 
-exports.fetchAlreadLiked = (id, sessionId) => {
+exports.fetchAlreadyLiked = (id, sessionId) => {
   let sql =
     'Select * from USER_LIKES Where USER_ID = ' +
     sessionId +
