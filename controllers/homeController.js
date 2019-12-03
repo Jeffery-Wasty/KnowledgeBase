@@ -108,7 +108,7 @@ exports.discussionPagination = async (req, res) => {
     discussionsData = discussions[0][0];
     topicsData = topics[0][0];
 
-    res.render('userHomePage', {
+    res.render('homePage', {
       pageTitle: 'Home Page',
       userCSS: true,
       discCSS: true,
