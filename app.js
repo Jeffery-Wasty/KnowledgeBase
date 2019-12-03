@@ -1,4 +1,4 @@
-require("./utils/envUtil");
+const dotEnv = require("./utils/envUtil");
 const express = require('express');
 const app = express();
 const path = require('path');
