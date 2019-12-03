@@ -11,7 +11,6 @@ exports.homePage = async (req, res) => {
         
         userData = user[0][0];
         discussionsData = discussions[0][0];
-        console.log(discussionsData)
         topicsData = topics[0][0]
         
         res.render('homePage', {

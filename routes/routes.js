@@ -41,9 +41,10 @@ router.post('/logout', logout);
 router.get('/profile/:id', redirectLogin, profileController.serveProfile)
 
 /**Post and Discussion Routes **/
-router.post('/getPostsForDiscussion', disccussionController.getPostsForDiscussion);
+router.get('/getPostsForDiscussion', disccussionController.getPostsForDiscussion);
 router.post('/createDiscussion', disccussionController.createDiscussion);
 router.post('/createPost', disccussionController.createPost);
+router.get('/discussionAndPostView', disccussionController.reloadDiscussions);
 
 
 /** Live messaging  **/
