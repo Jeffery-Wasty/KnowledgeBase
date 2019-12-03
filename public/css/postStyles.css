@@ -26,7 +26,7 @@
     margin-top: 10px;
     width: 79%;
     margin-top:5px;
-    overflow: hidden; 
+    overflow: auto;
     text-overflow: ellipsis; 
     display: -webkit-box; 
     -webkit-box-orient: vertical; 
