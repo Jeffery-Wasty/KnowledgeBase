@@ -10,7 +10,7 @@
   "scripts": {
     "start": "nodemon app.js"
   },
-  "author": "Steve, Boning, Jeffery, John, Oliver"
+  "author": "Steve, Boning, Jeffery, John, Oliver",
   "license": "MIT",
   "homepage": "https://github.com/Jeffery-Wasty/KnowledgeBase#readme",
   "devDependencies": {
