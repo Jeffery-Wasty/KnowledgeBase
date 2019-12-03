@@ -16,7 +16,7 @@ exports.serveProfile = async (req, res) => {
   let discussions = await discPostModel.getUsersDiscussions(id);
 
   userData = user[0][0];
-  postCount = posts[0].length;
+  postCount = posts[0][0].length;
   likeCount = likes[0].length;
   discussionsData = discussions[0][0];
 
@@ -56,7 +56,7 @@ exports.increaseAndServeProfile = async (req, res) => {
   let fetchLiked = await profileModel.fetchAlreadyLiked(id, sessionId);
 
   userData = user[0][0];
-  postCount = posts[0].length;
+  postCount = posts[0][0].length;
   likeCount = likes[0].length;
   discussionsData = discussions[0][0];
 
