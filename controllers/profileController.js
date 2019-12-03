@@ -99,7 +99,6 @@ exports.editProfile = (req, res) => {
       FIRST_NAME: data[0][0].FIRST_NAME,
       LAST_NAME: data[0][0].LAST_NAME,
       COUNTRY: data[0][0].COUNTRY,
-      DATE_OF_BIRTH: data[0][0].DATE_OF_BIRTH,
       ABOUT: data[0][0].ABOUT,
       PROFILE_IMAGE_URL: data[0][0].PROFILE_IMAGE_URL
     };
