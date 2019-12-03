@@ -19,6 +19,9 @@ exports.test = async function test(){
 	console.log('\n\nTesting Messages');
     console.log((await pool.query('CALL CREATE_MESSAGE(0, 1, \'What the heck is going on here\')'))[0]);
     console.log((await pool.query('CALL GET_MESSAGES_FOR_CONVERSATION(0)'))[0]);
+	console.log('\n\nTesting Discussions for User ID');
+	console.log((await pool.query('CALL GET_POSTS_FOR_DISCUSSION(1)'))[0]);
+	console.log((await pool.query('CALL GET_DISCUSSIONS_WITH_SEARCH(0, \'\')'))[0]);
 }
 
 async function addDummyData(){
