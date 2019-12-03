@@ -18,14 +18,12 @@
     border-style:double;
     border-color:gray;
     margin-left: 10%;
+    float: left;
 }
 
 .postBody {
     float: right;
     margin-top: 10px;
     width: 79%;
-    max-height:3;
-    max-lines: 3;
-    line-height: 1; /*TODO this line + preceding 2, figure how to limit lines of discussion, should it be handled here?*/
-    text-overflow: ellipsis;
+    overflow:hidden;
 }

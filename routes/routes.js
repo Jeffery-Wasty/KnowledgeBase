@@ -57,12 +57,10 @@ router.post(
 );
 
 /**Post and Discussion Routes **/
-router.post(
-  '/getPostsForDiscussion',
-  disccussionController.getPostsForDiscussion
-);
+router.get('/getPostsForDiscussion', disccussionController.getPostsForDiscussion);
 router.post('/createDiscussion', disccussionController.createDiscussion);
 router.post('/createPost', disccussionController.createPost);
+router.get('/discussionAndPostView', disccussionController.reloadDiscussions);
 
 /** Live messaging  **/
 router.get('/messagePage', redirectLogin, msgController.messagePage);
