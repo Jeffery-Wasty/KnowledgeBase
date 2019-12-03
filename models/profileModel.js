@@ -60,7 +60,7 @@ exports.fetchLikes = id => {
   return profileDb.execute(sql);
 };
 
-exports.fetchAlreadLiked = (id, sessionId) => {
+exports.fetchAlreadyLiked = (id, sessionId) => {
   let sql =
     'Select * from USER_LIKES Where USER_ID = ' +
     sessionId +
