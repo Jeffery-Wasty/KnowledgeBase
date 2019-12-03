@@ -48,6 +48,7 @@ router.post(
 /**Profile **/
 router.get('/profile/:id', redirectLogin, profileController.serveProfile);
 router.get('/profile/:id/edit', redirectLogin, profileController.editProfile);
+router.post('/edit', redirectLogin, homeController.sendEdit);
 router.post(
   '/profile/:id',
   redirectLogin,
