@@ -15,22 +15,31 @@
         </p>
     </div>
     <div class="extra">
-        <a href="/user/message/{{UserData.ID}}">
-            <button id="message" type="button">Message</button>
-        </a>
+        <form method="GET" action="/messagePage">
+            <input hidden="true" type="text" name="user_id" value="{{UserData.ID}}">
+            <button id="message" type="submit">Message</button>
+        </form>
         <div class="like">
             <p id="likes">
-                5 Likes
+                {{likes.LIKE_COUNT}}
+                {{#if likeSingular}} Like {{else}} Likes {{/if}}
             </p>
-            <button id="add-like" type="button">+</button>
+            <form method="POST" action="/profile/{{UserData.ID}}">
+                {{#if canLike}}
+                <button id="add-like" type="submit">+</button>
+                {{else}}
+                <button disabled="true" id="add-like-disabled" title="Profile already liked" type="submit">+</button>
+                {{/if}}
+            </form>
         </div>
         <p id="post-number">
-            {{numPost}} Posts
+            {{postCount}} Posts
         </p>
     </div>
 </div>
-<p id="all-posts">
-    All posts by {{UserData.FIRST_NAME}}
-</p>
-{{>post}}
+<div class="bottom-half">
+    <p id="all-posts">
+        All posts by {{UserData.FIRST_NAME}}
+    </p>
+    <div id="discussion-list">{{>discussionPartial}}</div>
 </div>

@@ -1,7 +1,7 @@
-<div id="userInfo">
-    <div id="imgContainer">
+<div id="user-info">
+    <div id="img-container">
         <a href="/profile/{{UserData.ID}}">
-            <img id="userImg" class="rounded-circle shadow-sm" src="{{UserData.PROFILE_IMAGE_URL}}">
+            <img id="user-img" class="rounded-circle shadow-sm" src="{{UserData.PROFILE_IMAGE_URL}}">
         </a>
     </div>
     <h2>{{UserData.FIRST_NAME}} {{UserData.LAST_NAME}}</h2>
@@ -11,32 +11,32 @@
         <table>
             <tr>
                 <td>
-                    <a id="postsLabel" href="#" class="d-inline link">Posts</a>
+                    <a id="posts" href="#" class="d-inline link">Posts</a>
                 </td>
                 <td>
-                    <p id="numPosts" class="d-inline">{{UserData.numPosts}}</p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a id="messagesLabel" href="/profile/message" class="d-inline link">Messages</a>
-                </td>
-                <td>
-                    <p id="numMessages" class="d-inline">3</p>
+                    <p id="num-posts" class="d-inline">{{noPosts}}</p>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <a id="likesLabel" href="#" class="d-inline link">Likes</a>
+                    <a id="messages" href="/profile/message" class="d-inline link">Messages</a>
                 </td>
                 <td>
-                    <p id="numLikes" class="d-inline">3</p>
+                    <p id="num-messages" class="d-inline">{{noMsg}}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a id="likes" href="#" class="d-inline link">Likes</a>
+                </td>
+                <td>
+                    <p id="num-likes" class="d-inline">{{noLikes}}</p>
                 </td>
             </tr>
         </table>
-        <div id="editContainer">
+        <div id="edit-container">
             <br />
-            <a href="#" class="link">Edit Profile</a>
+            <a href="/profile/{{UserData.ID}}/edit" class="link">Edit Profile</a>
         </div>
     </div>
 </div>

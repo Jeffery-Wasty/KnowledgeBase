@@ -39,6 +39,7 @@ exports.login = (req, res) => {
             if (data[0] && data[0][0] && data[0][0].ID) {
                 // SET REQ.SESSION.USERID AS CURRENT USER
                 req.session.userId = data[0][0].ID;
+                //IF DATABASE HAS USER AND MATCHING PASSOWRD, IMPLEMENT REDIRECT TO /mainPage/:id
                 res.redirect('/homePage');
             } else {
                 res.render('loginPage', {layout: 'signUp', err: 'Wrong password or email'})
@@ -51,7 +52,6 @@ exports.login = (req, res) => {
 
 exports.homePage = (req, res) => {
     //can access userId from session to make calls to db.  Can also store any states into session via req.session.anything = anything we want
-    console.log(req.session.userId)
     res.render('homePage', {layout: 'signUp'});
 }
 
