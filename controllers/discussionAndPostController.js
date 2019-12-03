@@ -9,6 +9,7 @@ exports.getPostsForDiscussion = async (req, res) => {
         let posts = data[0];
         discPostModel.getDiscussion(discussionID).then(([data, metadata])=>{
             let discussion = data[0];
+            console.log(posts)
             res.render('discussionAndPostView', {posts: posts, discussions: discussion, discCSS: true, header: true})
         })
     })
