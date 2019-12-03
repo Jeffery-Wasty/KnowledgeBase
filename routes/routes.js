@@ -36,6 +36,7 @@ router.post('/register', authController.register);
 
 /**Home Page routes **/
 router.get('/homePage', redirectLogin, homeController.homePage);
+router.get('/homePage/:id', redirectLogin, homeController.homePageForUser);
 router.post('/logout', logout);
 router.get('/search', searchController.searchWithString);
 router.post('/searchByTopic', searchController.searchWithTopic);
