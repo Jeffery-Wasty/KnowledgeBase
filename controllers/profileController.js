@@ -65,7 +65,6 @@ exports.increaseAndServeProfile = async (req, res) => {
   };
 
   alreadyLiked = fetchLiked[0].length > 0;
-  console.log(alreadyLiked);
   canLike = !(id == sessionId || alreadyLiked);
 
   res.render('profile', {
