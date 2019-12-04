@@ -36,18 +36,26 @@ exports.editUser = (data, id) => {
     k => !data[k] && data[k] !== undefined && delete data[k]
   );
 
+  if (Object.keys(data).length == 0) {
+    return 0;
+  }
+
   let str = '';
 
   for (let key in Object.keys(data)) {
     let val = Object.keys(data)[key];
     str += val;
     str += ' = ';
-    str += "'" + data[val] + "'";
+    str += "'" + data[val] + "', ";
   }
 
+  str = str.substring(0, str.length - 2);
   const sql = `UPDATE USERS SET 
-  ${str}
-  WHERE ID = ${id}`;
+    ${str}
+    WHERE ID = ${id}`;
+
+  console.log(str);
+
   return profileDb.execute(sql);
 };
 

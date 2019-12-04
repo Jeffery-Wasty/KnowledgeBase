@@ -1,7 +1,9 @@
 {{#each posts}}
 <div class="postPartial">
     <div class="postUserPortraitContainer">
-        <img class="postUserPortrait" src="{{this.PROFILE_IMG_URL}}"></img>
+        <a href="/profile/{{this.USER_ID}}">
+            <img class="postUserPortrait" src="{{this.PROFILE_IMG_URL}}"></img>
+        </a>
     </div>
     <div class="postBody">
             {{this.POST_BODY}}

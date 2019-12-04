@@ -7,7 +7,7 @@ CALL LIKE_USER(2, 3);
 CALL LIKE_USER(1, 2);
 CALL MODIFY_USER(1, NULL, NULL, NULL, NULL, NULL, NULL);
 CALL CREATE_USER('littlej', 'John', ' Hoang', 'johnquochoang@gmail.com', 'https://randomuser.me/api/portraits/med/men/2.jpg', 'Canada', '1920-04-06',
-    'I am just a rag tag bunch of mistakes and regrets balled together into a sexy asian form, #fuckyoujeff');
+    'I am just a rag tag bunch of mistakes and regrets balled together into a sexy asian form');
 CALL GET_USER_DISCUSSIONS(1);
 CALL GET_ALL_DISCUSSIONS();
 CALL GET_DISCUSSION(1);
