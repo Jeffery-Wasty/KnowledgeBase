@@ -235,6 +235,7 @@ ul {
 .send {
   float: right;
   margin-right: 50px;
+  margin-top: 30px;
 }
 
 #selected-card {
