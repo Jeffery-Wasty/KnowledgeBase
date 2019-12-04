@@ -37,8 +37,9 @@ exports.startConversation = (req, res) => {
         }
         profileModel.getUserProfile(req.body.sender_id).then(data => {
             if (data[0] && data[0][0] && data[0][0].PROFILE_IMAGE_URL) {
-                profile_img = data[0][0].PROFILE_IMAGE_URL
-                name = data[0][0].FIRST_NAME + " " + data[0][0].LAST_NAME
+                let profile_img = data[0][0].PROFILE_IMAGE_URL
+                let name = data[0][0].FIRST_NAME + " " + data[0][0].LAST_NAME
+                let email = data[0][0].EMAIL
                 msgModel.create_conversations(conversation).then(data => {
                     if (data[0] && data[0][0] && data[0][0][0]) {
                         conversation["conversation_id"] = data[0][0][0].ID
@@ -47,7 +48,7 @@ exports.startConversation = (req, res) => {
                         conversation["profile_img"] = profile_img
                         conversation["name"] = name
                         ws.pushMsg(conversation)
-                        es.sendEmail(data[0][0].EMAIL, name, err => {
+                        es.sendEmail(email, name, err => {
                             if (err) console.log("email sending failed: ", err)
                         })
                         res.redirect(303, '/conversationPage')
