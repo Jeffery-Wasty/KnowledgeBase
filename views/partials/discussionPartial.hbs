@@ -1,47 +1,47 @@
-<div class = "discussionPartialContainer">
-{{#each discussions}}
-<div class="row">
-    <div class="col-3">
-        <div class="userPortraitContainer">
-            <a href="/profile/{{this.USER_ID}}">
-                <img class="userPortrait" src="{{this.PROFILE_IMG_URL}}"></img>
-            </a>
+<div class="discussionPartialContainer">
+    {{#each discussions}}
+    <div class="firstRow row">
+        <div class="col-3">
+            <div class="userPortraitContainer">
+                <a href="/profile/{{this.USER_ID}}">
+                    <img class="userPortrait" src="{{this.PROFILE_IMG_URL}}"></img>
+                </a>
+            </div>
         </div>
-    </div>
-    <div class="col-8">
-        <div class="row">
-            <div class="col-12 mt-4">
-                <div class="discussionHeaderContainer">
-                    <div class="discussionHeaderTitle">
-                        {{this.TITLE}}
-                    </div>
-                    <div class="discussionHeaderTopic">
-                        {{this.TOPIC}}
+        <div class="col-8">
+            <div class="row">
+                <div class="col-12 mt-4">
+                    <div class="discussionHeaderContainer">
+                        <div class="discussionHeaderTitle">
+                            {{this.TITLE}}
+                        </div>
+                        <div class="discussionHeaderTopic">
+                            {{this.TOPIC}}
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
-        <div class="row">
-            <div class="discussionBody">
-                {{this.BODY}}
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="discussionFooterContainer">
-                    <div class="discussionDate">
-                        {{this.DATE}}
-                    </div>
-                    <!--TODO add functionality should rerender page somewhere-->
-                        <form action="getPostsForDiscussion" method="GET">
+            <div class="row">
+                <div class="discussionBody">
+                    {{this.BODY}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="discussionFooterContainer">
+                        <div class="discussionDate">
+                            {{this.DATE}}
+                        </div>
+                        <!--TODO add functionality should rerender page somewhere-->
+                        <form action="/getPostsForDiscussion" method="GET">
                             <input type="hidden" name="discussionID" value="{{this.ID}}"></input>
                             <input class="replyButton" type="submit" value="{{this.REPLY_COUNT}} replies"></input>
                         </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    {{/each}}
 </div>
-{{/each}}  
-</div> 

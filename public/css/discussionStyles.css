@@ -9,6 +9,11 @@ body {
   width: 500px;
 }
 
+.firstRow {
+  display: inline-block;
+  width: 150%;
+}
+
 .discussionPartial {
   background-color: white;
   width: 500px;
@@ -23,8 +28,8 @@ body {
 }
 
 .userPortrait {
-    display: block;
-    margin: 0 auto;
+  display: block;
+  margin: 0 auto;
   width: 80%;
   height: 80%;
   border-radius: 50%;
@@ -46,8 +51,6 @@ body {
   white-space: nowrap;
   word-wrap: break-word;
   text-overflow: ellipsis;
-
-
 }
 
 .discussionHeaderTopic {
@@ -67,20 +70,20 @@ body {
 }
 
 .discussionBody {
-    width: 100%;
-    height: 100px;
-    padding: 2%;
-    overflow: auto; 
-    text-overflow: ellipsis; 
-    display: -webkit-box; 
-    -webkit-box-orient: vertical; 
-    -webkit-line-clamp: 5; 
-    line-height: 1.12;
-    max-height: 15;
+  width: 100%;
+  height: 100px;
+  padding: 2%;
+  overflow: auto;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  line-height: 1.12;
+  max-height: 15;
 }
 
 .discussionFooterContainer {
-    margin-top:8px;
+  margin-top: 8px;
 }
 
 .discussionDate {
